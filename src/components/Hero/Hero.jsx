@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import profileImg from '../../assets/profile.png';
 import './Hero.css';
 
 const Hero = () => {
@@ -14,8 +15,7 @@ const Hero = () => {
                 <div className="photo-container float">
                     <div className="photo-glow"></div>
                     <div className="photo-placeholder">
-                        {/* User: Add your image path here */}
-                        <span>PHOTO</span>
+                        <img src={profileImg} alt="Arnab Kumar Das" />
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@ const Hero = () => {
                     whileInView={{ opacity: 1, letterSpacing: "2px" }}
                     transition={{ duration: 1.5, delay: 0.5 }}
                 >
-                    DASARI <span className="neon-text-purple">[NAME]</span>
+                    ARNAB KUMAR <span className="neon-text-purple">DAS</span>
                 </motion.h1>
 
                 <motion.p
