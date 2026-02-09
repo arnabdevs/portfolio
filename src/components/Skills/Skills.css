@@ -1,0 +1,41 @@
+.skills-section {
+    padding: 8rem 2rem;
+}
+
+.skills-nodes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.skill-node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.skill-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-med);
+}
+
+.skill-node:hover .skill-icon {
+    transform: scale(1.2) rotate(5deg);
+}
+
+.skill-name {
+    font-family: var(--font-hero);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
