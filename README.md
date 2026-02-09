@@ -1,16 +1,47 @@
-# React + Vite
+# Cyber Island Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A cinematic, high-end personal portfolio website with a dark futuristic cyber theme. This project is a self-made digital world floating in a vast cyber universe, forged from code, data, and security knowledge.
 
-Currently, two official plugins are available:
+## 🚀 Vision
+"This island is my digital world — built from intelligence, defense, and curiosity."
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠️ Tech Stack
+- **Framework:** [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
+- **Styling:** Vanilla CSS (Custom design system)
+- **Animations:** [Framer Motion](https://www.framer.com/motion/)
+- **Icons:** [Lucide React](https://lucide.dev/)
 
-## React Compiler
+## 🎨 Visual Style
+- Dark background (Deep black / Dark blue)
+- Neon cyan and purple accents
+- Cinematic glow effects and smooth transitions
+- Dynamic atmosphere with digital fog and particles
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📦 Project Structure
+- `/src/components/Atmosphere`: Cinematic background layer.
+- `/src/components/Hero`: Immersive entrance with photo and tagline.
+- `/src/components/About`: Narrative and visionary profile.
+- `/src/components/Skills`: Interactive tech-stack node system.
+- `/src/components/Projects`: "Zones" architecture for easily adding work.
+- `/src/components/Contact`: Minimalist, futuristic signal end.
 
-## Expanding the ESLint configuration
+## 🌐 Deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Automated (Recommended)
+1. Push this project to **GitHub**.
+2. Connect the repository to **[Vercel](https://vercel.com)** or **[Netlify](https://www.netlify.com)**.
+3. Settings:
+   - **Framework Preset:** Vite
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+
+### Manual Build
+```bash
+npm install
+npm run build
+```
+The production bundle will be generated in the `/dist` directory.
+
+---
+Built with intelligence and curiosity.
+
