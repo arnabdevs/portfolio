@@ -23,7 +23,7 @@ const Contact = () => {
                     <div className="social-links">
 
                         <motion.a
-                            href="https://instagram.com"
+                            href="https://www.instagram.com/arnabdevs/"
                             className="social-icon"
                             whileHover={{ y: -5, color: 'var(--secondary)' }}
                         >
@@ -32,7 +32,7 @@ const Contact = () => {
                         </motion.a>
 
                         <motion.a
-                            href="mailto:example@email.com"
+                            href="mailto:arnab.devs.6@gmail.com"
                             className="social-icon"
                             whileHover={{ y: -5, color: 'var(--accent)' }}
                         >
