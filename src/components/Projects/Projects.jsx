@@ -29,7 +29,16 @@ const projects = [
         description: "Custom scripts and tools built to automate network monitoring and incident response.",
         tags: ["Python", "Bash", "GitHub Actions"],
         link: "#",
-        github: "#"
+        github: "https://github.com/arnabdevs/portfolio"
+    },
+    {
+        id: 4,
+        title: "Simple Port Scanner",
+        category: "Networking Zone",
+        description: "A Python-based networking project designed to scan and identify open ports on a target host.",
+        tags: ["Python", "Networking", "Security"],
+        link: "https://simple-port-scanner.vercel.app",
+        github: "https://github.com/arnabdevs/port-scanner"
     }
 ];
 
