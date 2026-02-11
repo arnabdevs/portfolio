@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, Instagram, Mail, ArrowUp } from 'lucide-react';
+import { Instagram, Mail, ArrowUp, Send } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -39,6 +39,33 @@ const Contact = () => {
                             <Mail size={32} />
                             <span>Email</span>
                         </motion.a>
+                    </div>
+
+                    <div className="contact-form-container">
+                        <form
+                            className="contact-form"
+                            action="https://formspree.io/f/mqaejvwa"
+                            method="POST"
+                        >
+                            <div className="form-group">
+                                <input type="text" id="name" name="name" placeholder="YOUR NAME" required />
+                            </div>
+                            <div className="form-group">
+                                <input type="email" id="email" name="email" placeholder="YOUR EMAIL" required />
+                            </div>
+                            <div className="form-group">
+                                <textarea id="message" name="message" rows="5" placeholder="YOUR MESSAGE" required></textarea>
+                            </div>
+                            <motion.button
+                                type="submit"
+                                className="submit-btn"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                <Send size={20} />
+                                <span>TRANSMIT SIGNAL</span>
+                            </motion.button>
+                        </form>
                     </div>
 
                     <div className="footer-bottom">
