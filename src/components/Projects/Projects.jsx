@@ -79,7 +79,6 @@ const Projects = () => {
                             </div>
 
                             <div className="project-links">
-                                <a href={project.github} className="link-icon"><Github size={20} /></a>
                                 <a href={project.link} className="link-icon"><ExternalLink size={20} /></a>
                             </div>
                         </motion.div>

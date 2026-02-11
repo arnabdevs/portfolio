@@ -21,14 +21,6 @@ const Contact = () => {
                     <p className="contact-subtitle">Let's build the next secure intelligence together.</p>
 
                     <div className="social-links">
-                        <motion.a
-                            href="https://github.com/arnabdevs"
-                            className="social-icon"
-                            whileHover={{ y: -5, color: 'var(--primary)' }}
-                        >
-                            <Github size={32} />
-                            <span>GitHub</span>
-                        </motion.a>
 
                         <motion.a
                             href="https://instagram.com"
