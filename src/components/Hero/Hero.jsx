@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Github } from 'lucide-react';
 import profileImg from '../../assets/profile.png';
 import './Hero.css';
 
@@ -45,6 +46,23 @@ const Hero = () => {
                 >
                     “This island is my digital world — built from intelligence, defense, and curiosity.”
                 </motion.p>
+
+                <motion.div
+                    className="hero-cta"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 2 }}
+                >
+                    <a
+                        href="https://github.com/arnabdevs?tab=followers"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="github-follow-btn"
+                    >
+                        <Github size={20} />
+                        Follow on GitHub
+                    </a>
+                </motion.div>
             </motion.div>
         </section>
     );

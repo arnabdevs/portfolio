@@ -22,7 +22,7 @@ const Contact = () => {
 
                     <div className="social-links">
                         <motion.a
-                            href="https://github.com"
+                            href="https://github.com/arnabdevs"
                             className="social-icon"
                             whileHover={{ y: -5, color: 'var(--primary)' }}
                         >

@@ -75,5 +75,36 @@
     color: var(--text-main);
     opacity: 0.8;
     max-width: 500px;
-    margin: 0 auto;
+    margin: 0 auto 2.5rem;
+}
+
+.hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.github-follow-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px var(--primary-glow);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.github-follow-btn:hover {
+    background: var(--primary);
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--primary-glow), 0 0 40px var(--primary-glow);
+    transform: translateY(-3px);
 }
