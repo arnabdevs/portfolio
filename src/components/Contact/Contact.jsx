@@ -37,7 +37,7 @@ const Contact = () => {
                             whileHover={{ y: -5, color: 'var(--accent)' }}
                         >
                             <Mail size={32} />
-                            <span>Email</span>
+                            <span>arnab.devs.6@gmail.com</span>
                         </motion.a>
                     </div>
 

@@ -21,7 +21,8 @@
 
 .social-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    word-break: break-all;
     gap: 2rem;
     margin-bottom: 4rem;
 }
