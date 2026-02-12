@@ -14,8 +14,8 @@
 
 .photo-container {
     position: relative;
-    width: 180px;
-    height: 180px;
+    width: 250px;
+    height: 250px;
     margin: 0 auto 2rem;
     border-radius: 50%;
     padding: 5px;
@@ -53,6 +53,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
 }
 
 .hero-name {
