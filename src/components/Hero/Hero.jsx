@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github } from 'lucide-react';
-import profileImg from '../../assets/profile.png';
+import profileImg from '../../assets/profile_new.jpg';
 import './Hero.css';
 
 const Hero = () => {
@@ -16,7 +16,7 @@ const Hero = () => {
                 <div className="photo-container float">
                     <div className="photo-glow"></div>
                     <div className="photo-placeholder">
-                        <img src={profileImg} alt="Arnab Kumar Das" />
+                        <img src={profileImg} alt="Arnab Kumar Das" className="profile-image-new" />
                     </div>
                 </div>
 
