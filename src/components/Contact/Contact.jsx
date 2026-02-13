@@ -69,7 +69,7 @@ const Contact = () => {
                     </div>
 
                     <div className="footer-bottom">
-                        <p>© 2026 Arnab Kumar Das | Securing the Digital Frontier</p>
+                        <p>© 2026 Arnab Kumar Das | Hand-built in the Cyber Universe</p>
                         <button className="back-to-top" onClick={scrollToTop}>
                             <ArrowUp size={20} />
                         </button>
