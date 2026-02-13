@@ -40,7 +40,7 @@ const CodingProfiles = () => {
                     whileInView={{ opacity: 1 }}
                     transition={{ duration: 1 }}
                 >
-                    Combat <span className="neon-text-purple">Arenas</span>
+                    Competitive <span className="neon-text-purple">Intelligence</span>
                 </motion.h2>
 
                 <div className="profiles-grid">
