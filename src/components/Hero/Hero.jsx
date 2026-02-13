@@ -26,7 +26,7 @@ const Hero = () => {
                     whileInView={{ opacity: 1, letterSpacing: "2px" }}
                     transition={{ duration: 1.5, delay: 0.5 }}
                 >
-                    ARNAB KUMAR <span className="neon-text-purple">DAS</span>
+                    ARNAB KUMAR <span className="neon-text">DAS</span>
                 </motion.h1>
 
                 <motion.p

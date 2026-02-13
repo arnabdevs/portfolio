@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
 import Projects from './components/Projects/Projects';
+import CodingProfiles from './components/CodingProfiles/CodingProfiles';
 import Contact from './components/Contact/Contact';
 import './index.css';
 
@@ -15,6 +16,7 @@ function App() {
         <Hero />
         <About />
         <Skills />
+        <CodingProfiles />
         <Projects />
         <Contact />
       </main>
