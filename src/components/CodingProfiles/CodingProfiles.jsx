@@ -17,7 +17,7 @@ const profiles = [
         icon: <Terminal />,
         link: 'https://www.hackerrank.com/profile/arnabk714', // Replace with your actual profile link
         color: '#2EC866',
-        description: 'Problem Solving & SQL',
+        description: 'Problem Solving',
         stats: 'Rank & Badges'
     },
     {
