@@ -23,7 +23,7 @@ const profiles = [
     {
         name: 'HackTheBox',
         icon: <Box />,
-        link: 'https://profile.hackthebox.com/', // Replace with your actual profile link
+        link: 'https://profile.hackthebox.com/profile/019c57a1-a750-713c-aad3-771a038a4cf0', // Replace with your actual profile link
         color: '#9FEF00',
         description: 'Penetration Testing & CTFs',
         stats: 'Cybersecurity Skills'
