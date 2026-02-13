@@ -69,7 +69,7 @@ const Contact = () => {
                     </div>
 
                     <div className="footer-bottom">
-                        <p>© {new Date().getFullYear()} Arnab Kumar Das Portfolio | Hand-built in the Cyber Universe</p>
+                        <p>© 2026 Arnab Kumar Das Portfolio | Hand-built in the Cyber Universe</p>
                         <button className="back-to-top" onClick={scrollToTop}>
                             <ArrowUp size={20} />
                         </button>
