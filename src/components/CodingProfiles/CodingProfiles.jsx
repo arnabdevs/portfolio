@@ -7,7 +7,7 @@ const profiles = [
     {
         name: 'LeetCode',
         icon: <Code2 />,
-        link: 'https://leetcode.com/', // Replace with your actual profile link
+        link: 'https://leetcode.com/u/ak714/', // Replace with your actual profile link
         color: '#FFA116',
         description: 'Data Structures & Algorithms',
         stats: 'Problem Solving'
@@ -15,7 +15,7 @@ const profiles = [
     {
         name: 'HackerRank',
         icon: <Terminal />,
-        link: 'https://www.hackerrank.com/', // Replace with your actual profile link
+        link: 'https://www.hackerrank.com/profile/arnabk714', // Replace with your actual profile link
         color: '#2EC866',
         description: 'Problem Solving & SQL',
         stats: 'Rank & Badges'
@@ -23,7 +23,7 @@ const profiles = [
     {
         name: 'HackTheBox',
         icon: <Box />,
-        link: 'https://www.hackthebox.com/', // Replace with your actual profile link
+        link: 'https://profile.hackthebox.com/', // Replace with your actual profile link
         color: '#9FEF00',
         description: 'Penetration Testing & CTFs',
         stats: 'Cybersecurity Skills'
