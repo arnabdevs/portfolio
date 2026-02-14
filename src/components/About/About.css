@@ -22,10 +22,8 @@
     width: 320px;
     height: 320px;
     border-radius: 24px;
-    /* Changed to rounded corners instead of circle for better face visibility if the original image is tight */
     object-fit: cover;
-    object-position: center 20%;
-    /* Slightly adjust up for faces often in upper half */
+    object-position: center;
     border: 2px solid var(--primary-blue);
     box-shadow: 0 0 30px var(--primary-glow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
