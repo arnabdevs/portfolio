@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import profileImage from '../../assets/profile_new.jpg';
 import './About.css';
 
 const About = () => {
@@ -25,7 +24,7 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 1, delay: 0.2 }}
                     >
-                        <img src={profileImage} alt="Arnab Kumar Das" className="profile-image" />
+                        <img src="/profile.jpg" alt="Arnab Kumar Das" className="profile-image" />
                     </motion.div>
 
                     <motion.div
