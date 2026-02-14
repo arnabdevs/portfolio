@@ -1,69 +1,73 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github } from 'lucide-react';
-import profileImg from '../../assets/profile_new.jpg';
+import { ArrowDown } from 'lucide-react';
+import VideoBackground from '../VideoBackground/VideoBackground';
 import './Hero.css';
 
 const Hero = () => {
+    const scrollToProjects = () => {
+        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
     return (
         <section className="hero-section">
-            <motion.div
-                className="hero-content"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, ease: "easeOut" }}
-            >
-                <div className="photo-container float">
-                    <div className="photo-glow"></div>
-                    <div className="photo-placeholder">
-                        <img src={profileImg} alt="Arnab Kumar Das" className="profile-image-new" />
-                    </div>
-                </div>
+            <VideoBackground />
+
+            <div className="hero-content">
+                <motion.div
+                    className="hero-init"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    SYSTEM INITIALIZING...
+                </motion.div>
 
                 <motion.h1
-                    className="hero-name neon-text"
-                    initial={{ opacity: 0, letterSpacing: "10px" }}
-                    whileInView={{ opacity: 1, letterSpacing: "2px" }}
-                    transition={{ duration: 1.5, delay: 0.5 }}
+                    className="hero-name"
+                    initial={{ opacity: 0, letterSpacing: '0.5em' }}
+                    animate={{ opacity: 1, letterSpacing: '0.2em' }}
+                    transition={{ duration: 1.5, delay: 0.8 }}
                 >
                     ARNAB KUMAR <span className="neon-text">DAS</span>
                 </motion.h1>
 
-                <motion.p
-                    className="hero-subtitle"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
-                >
-                    AI/ML & Cybersecurity (Purple Teaming) Explorer
-                </motion.p>
+                <motion.div
+                    className="hero-divider"
+                    initial={{ width: 0 }}
+                    animate={{ width: '200px' }}
+                    transition={{ duration: 1, delay: 1.5 }}
+                />
 
                 <motion.p
-                    className="hero-tagline pulse"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1.5 }}
+                    className="hero-subtitle"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 2 }}
                 >
-                    “This island is my digital world — built from intelligence, defense, and curiosity.”
+                    AI ARCHITECT <span className="separator">|</span> CYBERSECURITY ENGINEER
                 </motion.p>
 
                 <motion.div
                     className="hero-cta"
                     initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, delay: 2.5 }}
                 >
-                    <a
-                        href="https://github.com/arnabdevs?tab=followers"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="github-follow-btn"
-                    >
-                        <Github size={20} />
-                        Follow on GitHub
-                    </a>
+                    <button className="cta-button" onClick={scrollToProjects}>
+                        VIEW PROJECTS
+                    </button>
                 </motion.div>
-            </motion.div>
+
+                <motion.div
+                    className="scroll-indicator"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 1, delay: 3 }}
+                >
+                    <ArrowDown size={24} className="pulse" />
+                </motion.div>
+            </div>
         </section>
     );
 };

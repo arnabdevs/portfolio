@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Instagram, Mail, ArrowUp, Send } from 'lucide-react';
+import { Instagram, Mail, Send, ArrowUp, Github } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -12,32 +12,49 @@ const Contact = () => {
         <footer className="contact-section" id="contact">
             <div className="section-container">
                 <motion.div
-                    className="contact-content glass-card"
+                    className="contact-content"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
                     transition={{ duration: 1 }}
                 >
-                    <h2 className="contact-title neon-text">Signal Transmitted</h2>
-                    <p className="contact-subtitle">Let's build the next secure intelligence together.</p>
+                    <h2 className="contact-title">
+                        MISSION <span className="neon-text">CONTROL</span>
+                    </h2>
+                    <p className="contact-subtitle">
+                        Initiate communication protocol
+                    </p>
 
                     <div className="social-links">
+                        <motion.a
+                            href="https://github.com/arnabdevs?tab=followers"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="social-icon"
+                            whileHover={{ y: -5 }}
+                        >
+                            <Github size={28} />
+                            <span>GitHub</span>
+                        </motion.a>
 
                         <motion.a
                             href="https://www.instagram.com/arnabdevs/"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="social-icon"
-                            whileHover={{ y: -5, color: 'var(--secondary)' }}
+                            whileHover={{ y: -5 }}
                         >
-                            <Instagram size={32} />
+                            <Instagram size={28} />
                             <span>Instagram</span>
                         </motion.a>
 
                         <motion.a
                             href="mailto:arnab.devs.6@gmail.com"
                             className="social-icon"
-                            whileHover={{ y: -5, color: 'var(--accent)' }}
+                            whileHover={{ y: -5 }}
                         >
-                            <Mail size={32} />
-                            <span>arnab.devs.6@gmail.com</span>
+                            <Mail size={28} />
+                            <span>Email</span>
                         </motion.a>
                     </div>
 
@@ -48,29 +65,47 @@ const Contact = () => {
                             method="POST"
                         >
                             <div className="form-group">
-                                <input type="text" id="name" name="name" placeholder="YOUR NAME" required />
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="YOUR NAME"
+                                    required
+                                />
                             </div>
                             <div className="form-group">
-                                <input type="email" id="email" name="email" placeholder="YOUR EMAIL" required />
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="YOUR EMAIL"
+                                    required
+                                />
                             </div>
                             <div className="form-group">
-                                <textarea id="message" name="message" rows="5" placeholder="YOUR MESSAGE" required></textarea>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="5"
+                                    placeholder="YOUR MESSAGE"
+                                    required
+                                ></textarea>
                             </div>
                             <motion.button
                                 type="submit"
                                 className="submit-btn"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                <Send size={20} />
+                                <Send size={18} />
                                 <span>TRANSMIT SIGNAL</span>
                             </motion.button>
                         </form>
                     </div>
 
                     <div className="footer-bottom">
-                        <p>© 2026 Arnab Kumar Das | Hand-built in the Cyber Universe</p>
-                        <button className="back-to-top" onClick={scrollToTop}>
+                        <p>© 2026 ARNAB KUMAR DAS | AEROSPACE PORTFOLIO SYSTEM</p>
+                        <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
                             <ArrowUp size={20} />
                         </button>
                     </div>

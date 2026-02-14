@@ -1,0 +1,85 @@
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background: #000000;
+}
+
+.particle-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, #000000 0%, #0a0a1a 50%, #000000 100%);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+}
+
+.earth-glow {
+    position: absolute;
+    bottom: -20%;
+    right: -10%;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle at center,
+            rgba(0, 100, 255, 0.15) 0%,
+            rgba(0, 150, 255, 0.08) 30%,
+            transparent 70%);
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: earthPulse 8s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes earthPulse {
+
+    0%,
+    100% {
+        opacity: 0.6;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: scale(1.1);
+    }
+}
+
+/* Subtle scan lines for aerospace feel */
+.video-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.1) 0px,
+            transparent 1px,
+            transparent 2px,
+            rgba(0, 0, 0, 0.1) 3px);
+    opacity: 0.03;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .earth-glow {
+        width: 80%;
+        height: 80%;
+        bottom: -30%;
+    }
+}

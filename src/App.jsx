@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import Preloader from './components/Preloader/Preloader';
 import Atmosphere from './components/Atmosphere/Atmosphere';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
@@ -9,18 +10,27 @@ import Contact from './components/Contact/Contact';
 import './index.css';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  const handlePreloaderComplete = () => {
+    setLoading(false);
+  };
+
   return (
-    <div className="app-container">
-      <Atmosphere />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <CodingProfiles />
-        <Projects />
-        <Contact />
-      </main>
-    </div>
+    <>
+      {loading && <Preloader onComplete={handlePreloaderComplete} />}
+      <div className="app-container">
+        <Atmosphere />
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <CodingProfiles />
+          <Projects />
+          <Contact />
+        </main>
+      </div>
+    </>
   );
 }
 

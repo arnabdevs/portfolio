@@ -7,7 +7,7 @@ const profiles = [
     {
         name: 'LeetCode',
         icon: <Code2 />,
-        link: 'https://leetcode.com/u/ak714/', // Replace with your actual profile link
+        link: 'https://leetcode.com/u/ak714/',
         color: '#FFA116',
         description: 'Data Structures & Algorithms',
         stats: 'Problem Solving'
@@ -15,15 +15,15 @@ const profiles = [
     {
         name: 'HackerRank',
         icon: <Terminal />,
-        link: 'https://www.hackerrank.com/profile/arnabk714', // Replace with your actual profile link
+        link: 'https://www.hackerrank.com/profile/arnabk714',
         color: '#2EC866',
-        description: 'Problem Solving',
+        description: 'Competitive Programming',
         stats: 'Rank & Badges'
     },
     {
         name: 'HackTheBox',
         icon: <Box />,
-        link: 'https://profile.hackthebox.com/profile/019c57a1-a750-713c-aad3-771a038a4cf0', // Replace with your actual profile link
+        link: 'https://profile.hackthebox.com/profile/019c57a1-a750-713c-aad3-771a038a4cf0',
         color: '#9FEF00',
         description: 'Penetration Testing & CTFs',
         stats: 'Cybersecurity Skills'
@@ -35,12 +35,13 @@ const CodingProfiles = () => {
         <section className="profiles-section" id="profiles">
             <div className="section-container">
                 <motion.h2
-                    className="section-title neon-text"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 1 }}
+                    className="section-title"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
                 >
-                    Competitive <span className="neon-text-purple">Intelligence</span>
+                    TRAINING <span className="neon-text">GROUNDS</span>
                 </motion.h2>
 
                 <div className="profiles-grid">
@@ -51,13 +52,14 @@ const CodingProfiles = () => {
                             rel="noopener noreferrer"
                             key={profile.name}
                             className="profile-card glass-card"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
                             whileHover={{
-                                scale: 1.03,
-                                boxShadow: `0 0 20px ${profile.color}40`,
-                                borderColor: profile.color
+                                y: -8,
+                                borderColor: profile.color,
+                                boxShadow: `0 0 30px ${profile.color}40`
                             }}
                         >
                             <div className="profile-icon" style={{ color: profile.color }}>
