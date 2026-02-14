@@ -5,8 +5,8 @@ import VideoBackground from '../VideoBackground/VideoBackground';
 import './Hero.css';
 
 const Hero = () => {
-    const scrollToProjects = () => {
-        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+    const followGitHub = () => {
+        window.open('https://github.com/arnabdevs', '_blank');
     };
 
     return (
@@ -54,8 +54,8 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 2.5 }}
                 >
-                    <button className="cta-button" onClick={scrollToProjects}>
-                        VIEW PROJECTS
+                    <button className="cta-button" onClick={followGitHub}>
+                        FOLLOW GITHUB
                     </button>
                 </motion.div>
 
