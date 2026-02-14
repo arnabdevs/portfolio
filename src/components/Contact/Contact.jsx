@@ -104,7 +104,7 @@ const Contact = () => {
                     </div>
 
                     <div className="footer-bottom">
-                        <p>© 2026 ARNAB KUMAR DAS | AEROSPACE PORTFOLIO SYSTEM</p>
+                        <p>© 2026 ARNAB KUMAR DAS | CYBER ISLAND</p>
                         <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
                             <ArrowUp size={20} />
                         </button>

@@ -29,7 +29,7 @@ const Hero = () => {
                     animate={{ opacity: 1, letterSpacing: '0.2em' }}
                     transition={{ duration: 1.5, delay: 0.8 }}
                 >
-                    ARNAB KUMAR <span className="neon-text">DAS</span>
+                    ARNAB KUMAR DAS
                 </motion.h1>
 
                 <motion.div
@@ -45,7 +45,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, delay: 2 }}
                 >
-                    AI ARCHITECT <span className="separator">|</span> CYBERSECURITY ENGINEER
+                    AI/ML & CYBERSECURITY EXPLORER
                 </motion.p>
 
                 <motion.div
