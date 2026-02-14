@@ -13,7 +13,7 @@ const About = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    MISSION <span className="neon-text">PROFILE</span>
+                    ABOUT <span className="neon-text">ME</span>
                 </motion.h2>
 
                 <div className="about-wrapper">

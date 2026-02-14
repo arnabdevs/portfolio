@@ -26,7 +26,7 @@ const Skills = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    CORE <span className="neon-text">SYSTEMS</span>
+                    <span className="neon-text">SKILLS</span>
                 </motion.h2>
 
                 <div className="skills-grid">

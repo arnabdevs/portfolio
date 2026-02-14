@@ -19,10 +19,10 @@ const Contact = () => {
                     transition={{ duration: 1 }}
                 >
                     <h2 className="contact-title">
-                        MISSION <span className="neon-text">CONTROL</span>
+                        TRANSMIT <span className="neon-text">SIGNALS</span>
                     </h2>
                     <p className="contact-subtitle">
-                        Initiate communication protocol
+                        Let's build defence intelligence together
                     </p>
 
                     <div className="social-links">

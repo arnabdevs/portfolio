@@ -53,7 +53,7 @@ const Projects = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    DEPLOYED <span className="neon-text">SYSTEMS</span>
+                    <span className="neon-text">PROJECTS</span>
                 </motion.h2>
 
                 <motion.p
