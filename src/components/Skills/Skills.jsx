@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { Cpu, Shield, Terminal, Globe, Code, Zap, Database, GitBranch } from 'lucide-react';
 import './Skills.css';
 
@@ -14,6 +14,70 @@ const skills = [
     { name: 'Version Control', icon: <GitBranch />, color: 'var(--primary-blue)' },
     { name: 'Database Systems', icon: <Database />, color: 'var(--primary-blue)' },
 ];
+
+const SkillCard = ({ skill, index }) => {
+    const cardRef = useRef(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["15deg", "-15deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-15deg", "15deg"]);
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+            }}
+            className="skill-card glass-card"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+        >
+            <div
+                className="skill-icon"
+                style={{
+                    color: skill.color,
+                    transform: "translateZ(50px)"
+                }}
+            >
+                {skill.icon}
+            </div>
+            <span
+                className="skill-name"
+                style={{ transform: "translateZ(30px)" }}
+            >
+                {skill.name}
+            </span>
+        </motion.div>
+    );
+};
 
 const Skills = () => {
     return (
@@ -31,24 +95,7 @@ const Skills = () => {
 
                 <div className="skills-grid">
                     {skills.map((skill, index) => (
-                        <motion.div
-                            key={skill.name}
-                            className="skill-card glass-card"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            whileHover={{
-                                y: -8,
-                                borderColor: skill.color,
-                                boxShadow: `0 0 30px ${skill.color}40`
-                            }}
-                        >
-                            <div className="skill-icon" style={{ color: skill.color }}>
-                                {skill.icon}
-                            </div>
-                            <span className="skill-name">{skill.name}</span>
-                        </motion.div>
+                        <SkillCard key={skill.name} skill={skill} index={index} />
                     ))}
                 </div>
             </div>

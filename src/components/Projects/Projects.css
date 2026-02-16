@@ -18,6 +18,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
     margin-top: 4rem;
+    perspective: 2000px;
 }
 
 .project-card {
