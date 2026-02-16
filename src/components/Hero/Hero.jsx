@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 import VideoBackground from '../VideoBackground/VideoBackground';
-import Hero3D from './Hero3D';
 import './Hero.css';
 
 const Hero = () => {
@@ -13,7 +12,6 @@ const Hero = () => {
     return (
         <section className="hero-section">
             <VideoBackground />
-            <Hero3D />
 
             <div className="hero-content">
                 <motion.div
