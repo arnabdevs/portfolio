@@ -7,6 +7,8 @@ const skills = [
     { name: 'Networking & System', icon: <Globe />, color: 'var(--primary-blue)' },
     { name: 'Programming & Automation', icon: <Code />, color: 'var(--primary-blue)' },
     { name: 'Version Control', icon: <GitBranch />, color: 'var(--primary-blue)' },
+    { name: 'Cyber security', icon: <Shield />, color: 'var(--primary-blue)' },
+    { name: 'AI/ML', icon: <Cpu />, color: 'var(--primary-blue)' },
 ];
 
 const SkillCard = ({ skill, index }) => {
