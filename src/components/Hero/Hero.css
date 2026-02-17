@@ -168,3 +168,20 @@
         display: none;
     }
 }
+.hero-corner {
+    position: absolute;
+    font-family: var(--font-hero);
+    font-size: 0.6rem;
+    color: var(--primary-blue);
+    opacity: 0.3;
+    letter-spacing: 0.2em;
+}
+
+.top-left { top: 2rem; left: 2rem; }
+.top-right { top: 2rem; right: 2rem; }
+.bottom-left { bottom: 2rem; left: 2rem; }
+.bottom-right { bottom: 2rem; right: 2rem; }
+
+@media (max-width: 768px) {
+    .hero-corner { display: none; }
+}
