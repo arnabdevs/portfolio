@@ -4,15 +4,9 @@ import { Cpu, Shield, Terminal, Globe, Code, Zap, Database, GitBranch } from 'lu
 import './Skills.css';
 
 const skills = [
-    { name: 'AI & Machine Learning', icon: <Cpu />, color: 'var(--primary-blue)' },
-    { name: 'Python Development', icon: <Code />, color: 'var(--primary-blue)' },
-    { name: 'Cybersecurity', icon: <Shield />, color: 'var(--primary-blue)' },
-    { name: 'Purple Teaming', icon: <Zap />, color: 'var(--primary-blue)' },
-    { name: 'Linux Systems', icon: <Terminal />, color: 'var(--primary-blue)' },
-    { name: 'Network Security', icon: <Globe />, color: 'var(--primary-blue)' },
-    { name: 'Ethical Hacking', icon: <Shield />, color: 'var(--primary-blue)' },
+    { name: 'Networking & System', icon: <Globe />, color: 'var(--primary-blue)' },
+    { name: 'Programming & Automation', icon: <Code />, color: 'var(--primary-blue)' },
     { name: 'Version Control', icon: <GitBranch />, color: 'var(--primary-blue)' },
-    { name: 'Database Systems', icon: <Database />, color: 'var(--primary-blue)' },
 ];
 
 const SkillCard = ({ skill, index }) => {
