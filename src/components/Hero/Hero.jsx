@@ -77,6 +77,11 @@ const Hero = () => {
                 >
                     <ArrowDown size={24} className="pulse" />
                 </motion.div>
+
+                <div className="hero-corner top-left">LAT: 28.6139° N</div>
+                <div className="hero-corner top-right">LONG: 77.2090° E</div>
+                <div className="hero-corner bottom-left">REF: A-X-99</div>
+                <div className="hero-corner bottom-right">SEC: ALPHA</div>
             </div>
         </section>
     );

@@ -24,6 +24,7 @@ function App() {
       {loading && <Preloader onComplete={handlePreloaderComplete} />}
       <div className="app-container">
         <Atmosphere />
+        <div className="interface-grid"></div>
         <main>
           <Hero />
           <About />
