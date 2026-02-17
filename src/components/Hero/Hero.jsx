@@ -9,6 +9,29 @@ const Hero = () => {
         window.open('https://github.com/arnabdevs', '_blank');
     };
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.5
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 1.2,
+                ease: [0.16, 1, 0.3, 1]
+            }
+        }
+    };
+
     return (
         <section className="hero-section">
             <VideoBackground />
@@ -17,46 +40,33 @@ const Hero = () => {
                 <motion.div
                     className="hero-init"
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                    animate={{ opacity: 0.7 }}
+                    transition={{ duration: 1, delay: 0.2 }}
                 >
-                    SYSTEM INITIALIZING...
+                    [ MISSION STATUS: INITIALIZING ]
                 </motion.div>
 
-                <motion.h1
-                    className="hero-name"
-                    initial={{ opacity: 0, letterSpacing: '0.5em' }}
-                    animate={{ opacity: 1, letterSpacing: '0.2em' }}
-                    transition={{ duration: 1.5, delay: 0.8 }}
-                >
-                    ARNAB KUMAR DAS
-                </motion.h1>
-
                 <motion.div
-                    className="hero-divider"
-                    initial={{ width: 0 }}
-                    animate={{ width: '200px' }}
-                    transition={{ duration: 1, delay: 1.5 }}
-                />
-
-                <motion.p
-                    className="hero-subtitle"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 2 }}
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="hero-main"
                 >
-                    AI/ML & CYBERSECURITY EXPLORER
-                </motion.p>
+                    <motion.h1 className="hero-name" variants={itemVariants}>
+                        ARNAB KUMAR DAS
+                    </motion.h1>
 
-                <motion.div
-                    className="hero-cta"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1, delay: 2.5 }}
-                >
-                    <button className="cta-button" onClick={followGitHub}>
-                        FOLLOW GITHUB
-                    </button>
+                    <motion.div className="hero-divider" variants={itemVariants} />
+
+                    <motion.p className="hero-subtitle" variants={itemVariants}>
+                        SYSTEM ARCHITECT // AI & CYBERSECURITY
+                    </motion.p>
+
+                    <motion.div className="hero-cta" variants={itemVariants}>
+                        <button className="cta-button" onClick={followGitHub}>
+                            INITIALIZE CONNECTION
+                        </button>
+                    </motion.div>
                 </motion.div>
 
                 <motion.div

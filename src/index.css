@@ -1,24 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Exo+2:wght@300;400;500;600&display=swap');
 
 :root {
-  /* Aerospace Color System */
-  --bg-black: #000000;
+  /* Aerospace Color System - Ultra Minimal */
+  --bg-black: #050505;
   --bg-dark: #0a0a0a;
-  --primary-blue: #00D9FF;
-  --primary-glow: rgba(0, 217, 255, 0.4);
-  --text-white: #FFFFFF;
-  --text-dim: #b0b0b0;
-  --border-subtle: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(10, 10, 10, 0.7);
-  
-  /* Typography */
+  --primary-blue: #00EAFF;
+  /* More tactical neon */
+  --primary-glow: rgba(0, 234, 255, 0.25);
+  --text-white: #f8f8f8;
+  --text-dim: #888888;
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --interface-accent: rgba(0, 234, 255, 0.1);
+
+  /* Typography - High Letter Spacing */
   --font-hero: 'Orbitron', sans-serif;
   --font-body: 'Exo 2', sans-serif;
-  
-  /* Transitions */
-  --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-med: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --tracking-tighter: -0.05em;
+  --tracking-wide: 0.2em;
+  --tracking-widest: 0.5em;
+
+  /* Transitions - Controlled & Smooth */
+  --transition-ultra: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-med: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -42,11 +46,17 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-hero);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  font-weight: 800;
+  color: var(--text-white);
 }
 
 /* App Container */
@@ -102,7 +112,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Neon Text Effects */
 .neon-text {
   color: var(--primary-blue);
-  text-shadow: 
+  text-shadow:
     0 0 10px var(--primary-glow),
     0 0 20px var(--primary-glow),
     0 0 30px var(--primary-glow);
@@ -110,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .neon-text-white {
   color: var(--text-white);
-  text-shadow: 
+  text-shadow:
     0 0 10px rgba(255, 255, 255, 0.5),
     0 0 20px rgba(255, 255, 255, 0.3);
 }
@@ -121,6 +131,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -132,6 +143,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     transform: translateY(50px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -143,6 +155,7 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -150,9 +163,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.6;
   }
+
   50% {
     opacity: 1;
   }
@@ -162,6 +178,7 @@ h1, h2, h3, h4, h5, h6 {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -202,7 +219,7 @@ h1, h2, h3, h4, h5, h6 {
   .section-container {
     padding: 0 1.5rem;
   }
-  
+
   .section-title {
     font-size: clamp(2rem, 8vw, 3rem);
     margin-bottom: 2rem;
