@@ -93,15 +93,17 @@
 
 .tag {
     font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 400;
-    padding: 0.4rem 1rem;
-    background: rgba(0, 217, 255, 0.1);
-    border: 1px solid rgba(0, 217, 255, 0.3);
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.8rem;
+    background: rgba(0, 234, 255, 0.05);
+    border: 1px solid rgba(0, 234, 255, 0.1);
     color: var(--primary-blue);
-    border-radius: 2px;
-    letter-spacing: 0.05em;
+    border-radius: 0px;
+    /* Tactical sharp edges */
+    letter-spacing: 0.1em;
     transition: var(--transition-fast);
+    text-transform: uppercase;
 }
 
 .tag:hover {

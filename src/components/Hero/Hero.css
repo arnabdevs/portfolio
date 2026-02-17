@@ -39,11 +39,10 @@
 
 .hero-divider {
     height: 1px;
-    width: 100px;
+    width: 60px;
     background: var(--primary-blue);
-    margin: 3rem auto;
-    opacity: 0.4;
-    box-shadow: 0 0 15px var(--primary-glow);
+    margin: 2.5rem auto;
+    opacity: 0.3;
 }
 
 .hero-subtitle {
