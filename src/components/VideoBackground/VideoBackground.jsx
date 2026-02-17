@@ -1,78 +1,51 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './VideoBackground.css';
 
 const VideoBackground = () => {
-    const v1Ref = useRef(null);
-    const v2Ref = useRef(null);
-    const v3Ref = useRef(null);
-    const [opacity, setOpacity] = useState({ v1: 1, v2: 0, v3: 0 });
+    const { scrollYProgress } = useScroll();
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
+    // Opacity Mappings for 3 Stages
+    // Stage 1: Hero (0 to 0.33)
+    // Stage 2: About (0.33 to 0.66)
+    // Stage 3: Projects (0.66 to 1)
 
-            let v1 = 0, v2 = 0, v3 = 0;
+    // We use slightly overlapping ranges for smoother transitions
+    const opacity1 = useTransform(scrollYProgress, [0, 0.33, 0.45], [1, 0, 0]);
+    const opacity2 = useTransform(scrollYProgress, [0.2, 0.35, 0.65, 0.8], [0, 1, 1, 0]);
+    const opacity3 = useTransform(scrollYProgress, [0.55, 0.7, 1], [0, 1, 1]);
 
-            if (scrollPercent <= 0.33) {
-                // Hero stage (Full v1, transitioning to v2)
-                v1 = 1 - (scrollPercent / 0.33);
-                v2 = scrollPercent / 0.33;
-                v3 = 0;
-            } else if (scrollPercent <= 0.66) {
-                // About stage (v2 fully in at 0.33, transitioning to v3)
-                v1 = 0;
-                v2 = 1 - ((scrollPercent - 0.33) / 0.33);
-                v3 = (scrollPercent - 0.33) / 0.33;
-            } else {
-                // Projects stage (v3 fully in)
-                v1 = 0;
-                v2 = 0;
-                v3 = 1;
-            }
-
-            setOpacity({ v1, v2, v3 });
-        };
-
-        const setupVideo = (video) => {
-            if (!video) return;
-            video.playbackRate = 0.5;
-            video.play().catch(() => { });
-        };
-
-        setupVideo(v1Ref.current);
-        setupVideo(v2Ref.current);
-        setupVideo(v3Ref.current);
-
-        window.addEventListener('scroll', handleScroll, { passive: true });
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    // Subtle scale drift to match "environmental evolution"
+    const scale1 = useTransform(scrollYProgress, [0, 0.45], [1, 1.1]);
+    const scale2 = useTransform(scrollYProgress, [0.2, 0.8], [1.1, 1.2]); // Deeper evolution
+    const scale3 = useTransform(scrollYProgress, [0.55, 1], [1, 1.15]);
 
     return (
         <div className="video-background">
-            <video
-                ref={v1Ref}
+            <motion.video
                 className="background-video"
-                style={{ opacity: opacity.v1 }}
+                style={{ opacity: opacity1, scale: scale1 }}
                 autoPlay loop muted playsInline
             >
                 <source src="/assets/videos/bg1.mp4" type="video/mp4" />
-            </video>
-            <video
-                ref={v2Ref}
+            </motion.video>
+
+            <motion.video
                 className="background-video"
-                style={{ opacity: opacity.v2 }}
+                style={{ opacity: opacity2, scale: scale2 }}
                 autoPlay loop muted playsInline
             >
                 <source src="/assets/videos/bg2.mp4" type="video/mp4" />
-            </video>
-            <video
-                ref={v3Ref}
+            </motion.video>
+
+            <motion.video
                 className="background-video"
-                style={{ opacity: opacity.v3 }}
+                style={{ opacity: opacity3, scale: scale3 }}
                 autoPlay loop muted playsInline
             >
                 <source src="/assets/videos/bg3.mp4" type="video/mp4" />
-            </video>
+            </motion.video>
+
             <div className="video-overlay"></div>
         </div>
     );
