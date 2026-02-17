@@ -35,18 +35,11 @@ const About = () => {
                         transition={{ duration: 1, delay: 0.2 }}
                     >
                         <p className="about-text">
-                            I architect intelligent systems at the convergence of
-                            <span className="highlight"> artificial intelligence</span> and
-                            <span className="highlight"> cybersecurity</span>.
-                            My mission: to build autonomous defense mechanisms that think, adapt, and protect.
+                            I am an AI and cybersecurity-focused engineering student specializing in intelligent systems and secure architecture. My work centers around machine learning, automation, and network security, with a strong emphasis on building scalable and resilient infrastructures.
                         </p>
 
                         <p className="about-text">
-                            Specializing in <strong>Purple Teaming</strong>—the strategic fusion of offensive and defensive operations—I engineer solutions that don't just respond to threats, but anticipate them. Every system I build is designed for resilience in an adversarial future.
-                        </p>
-
-                        <p className="about-text">
-                            This portfolio represents more than code. It's a launch platform for next-generation security architecture, where machine learning meets tactical defense, and innovation meets operational excellence.
+                            I approach technology with analytical precision and a security-first mindset, continuously advancing my expertise in AI-driven defense systems and modern cybersecurity frameworks. My goal is to engineer intelligent solutions that are both innovative and secure by design.
                         </p>
                     </motion.div>
                 </div>
