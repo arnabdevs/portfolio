@@ -4,6 +4,7 @@ import Atmosphere from './components/Atmosphere/Atmosphere';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Skills from './components/Skills/Skills';
+import Languages from './components/Languages/Languages';
 import Projects from './components/Projects/Projects';
 import CodingProfiles from './components/CodingProfiles/CodingProfiles';
 import Contact from './components/Contact/Contact';
@@ -25,6 +26,7 @@ function App() {
           <Hero />
           <About />
           <Skills />
+          <Languages />
           <CodingProfiles />
           <Projects />
           <Contact />

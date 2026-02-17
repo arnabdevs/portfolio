@@ -1,18 +1,16 @@
 import React, { useRef } from 'react';
 import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import { Cpu, Shield, Terminal, Globe, Code, Zap, Database, GitBranch } from 'lucide-react';
-import './Skills.css';
+import { Terminal, Globe, Code, Database } from 'lucide-react';
+import './Languages.css';
 
-const skills = [
-    { name: 'Networking & System', icon: <Globe />, color: 'var(--primary-blue)' },
-    { name: 'Programming & Automation', icon: <Code />, color: 'var(--primary-blue)' },
-    { name: 'Version Control', icon: <GitBranch />, color: 'var(--primary-blue)' },
-    { name: 'Cyber security', icon: <Shield />, color: 'var(--primary-blue)' },
-    { name: 'AI/ML', icon: <Cpu />, color: 'var(--primary-blue)' },
-    { name: 'Security-Focused Problem Solving', icon: <Zap />, color: 'var(--primary-blue)' },
+const languages = [
+    { name: 'Python', icon: <Code />, color: 'var(--primary-blue)' },
+    { name: 'Bash(Shell Scripting)', icon: <Terminal />, color: 'var(--primary-blue)' },
+    { name: 'SQL', icon: <Database />, color: 'var(--primary-blue)' },
+    { name: 'JavaScript', icon: <Globe />, color: 'var(--primary-blue)' },
 ];
 
-const SkillCard = ({ skill, index }) => {
+const LanguageCard = ({ language, index }) => {
     const cardRef = useRef(null);
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -51,34 +49,34 @@ const SkillCard = ({ skill, index }) => {
                 rotateY,
                 transformStyle: "preserve-3d",
             }}
-            className="skill-card glass-card"
+            className="language-card glass-card"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
         >
             <div
-                className="skill-icon"
+                className="language-icon"
                 style={{
-                    color: skill.color,
+                    color: language.color,
                     transform: "translateZ(50px)"
                 }}
             >
-                {skill.icon}
+                {language.icon}
             </div>
             <span
-                className="skill-name"
+                className="language-name"
                 style={{ transform: "translateZ(30px)" }}
             >
-                {skill.name}
+                {language.name}
             </span>
         </motion.div>
     );
 };
 
-const Skills = () => {
+const Languages = () => {
     return (
-        <section className="skills-section" id="skills">
+        <section className="languages-section" id="languages">
             <div className="section-container">
                 <motion.h2
                     className="section-title"
@@ -87,12 +85,12 @@ const Skills = () => {
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
                 >
-                    <span className="neon-text">SKILLS</span>
+                    <span className="neon-text">LANGUAGES</span>
                 </motion.h2>
 
-                <div className="skills-grid">
-                    {skills.map((skill, index) => (
-                        <SkillCard key={skill.name} skill={skill} index={index} />
+                <div className="languages-grid">
+                    {languages.map((lang, index) => (
+                        <LanguageCard key={lang.name} language={lang} index={index} />
                     ))}
                 </div>
             </div>
@@ -100,4 +98,4 @@ const Skills = () => {
     );
 };
 
-export default Skills;
+export default Languages;
