@@ -1535,8 +1535,8 @@
     // SPACESHIP LOGIC
     let startTime = Date.now();
     const duration = 2800;
-    const startPos = { x: -400, y: -400 }; // NW Corner
-    const endPos = { x: window.innerWidth * 0.72, y: window.innerHeight * 0.58 }; // SE Area
+    const startPos = { x: window.innerWidth + 400, y: -400 }; // NE Corner
+    const endPos = { x: window.innerWidth * 0.15 - 200, y: window.innerHeight * 0.52 - 100 }; // SW Area
     let prevPos = { ...startPos };
 
     function fly() {
@@ -1546,7 +1546,7 @@
         t = 1;
         sPhase = 'arrived';
         ship.style.transition = 'transform 1s ease';
-        ship.style.transform = 'rotate(-8deg)';
+        ship.style.transform = 'rotate(-12deg)';
         aura.style.display = 'none';
         navbar.style.opacity = 1;
         showHero();
@@ -1561,9 +1561,8 @@
       let dy = curY - prevPos.y;
       let lookAngle = Math.atan2(dy, dx) * (180 / Math.PI);
       
-      // Ensure front of ship (pointy bit) faces the destination
-      // Adding 180 offset because the source image nose points towards bottom-left
-      let finalAngle = lookAngle + 180;
+      // Face forward along trajectory
+      let finalAngle = lookAngle;
 
       ship.style.left = curX + 'px';
       ship.style.top = curY + 'px';
@@ -1595,8 +1594,8 @@
     function miniOrbit() {
       if (sPhase !== 'arrived') return;
       orbitAngle += 0.015;
-      let cx = window.innerWidth * 0.72;
-      let cy = window.innerHeight * 0.58;
+      let cx = window.innerWidth * 0.15;
+      let cy = window.innerHeight * 0.52;
       ship.style.left = (cx + Math.cos(orbitAngle) * 22 - 200) + 'px';
       ship.style.top = (cy + Math.sin(orbitAngle) * 22 - 100) + 'px';
       requestAnimationFrame(miniOrbit);
