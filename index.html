@@ -1355,6 +1355,7 @@
           <span class="tag">Cyber-AI</span>
         </div>
         <div class="proj-links">
+          <a href="https://soc-velocity-v-1.vercel.app/" target="_blank">View Live</a>
           <a href="#">Source</a>
         </div>
       </div>
@@ -1653,8 +1654,8 @@
         t = 1;
         sPhase = 'arrived';
         ship.src = 'spaceship_dive.png';
-        ship.style.transition = 'transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), left 1s ease, top 1s ease';
-        ship.style.transform = 'rotate(-12deg) scale(1.1)';
+        ship.style.transition = 'transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        ship.style.transform = `translate3d(${endPos.x}px, ${endPos.y}px, 0) rotate(-12deg) scale(1.1)`;
         aura.style.display = 'none';
         navbar.style.opacity = 1;
         showHero();
@@ -1672,25 +1673,20 @@
       // Face forward: NW to SE is ~45deg, but ship orientation needs +180 adjustment
       let finalAngle = lookAngle + 180;
 
-      ship.style.left = curX + 'px';
-      ship.style.top = curY + 'px';
-      if (t < 1) ship.style.transform = `rotate(${finalAngle}deg)`;
+      ship.style.transform = `translate3d(${curX}px, ${curY}px, 0) rotate(${finalAngle}deg)`;
 
       // SPEED LINES
       if (Math.random() < 0.35) {
         const spd = document.createElement('div');
         spd.className = 'spd';
         spd.style.width = (60 + Math.random() * 100) + 'px';
-        spd.style.left = (curX + 200) + 'px';
-        spd.style.top = (curY + 100 + (Math.random() * 100 - 50)) + 'px';
-        spd.style.transform = `rotate(${lookAngle}deg)`;
+        spd.style.transform = `translate3d(${curX + 200}px, ${curY + 100 + (Math.random() * 100 - 50)}px, 0) rotate(${lookAngle}deg)`;
         document.body.appendChild(spd);
         setTimeout(() => spd.remove(), 460);
       }
 
       // AURA
-      aura.style.left = (curX + 200 - 220) + 'px';
-      aura.style.top = (curY + 100 - 110) + 'px';
+      aura.style.transform = `translate3d(${curX + 200 - 220}px, ${curY + 100 - 110}px, 0)`;
       aura.style.display = 'block';
 
       prevPos = { x: curX, y: curY };
@@ -1704,8 +1700,7 @@
       orbitAngle += 0.015;
       let cx = window.innerWidth * 0.75;
       let cy = window.innerHeight * 0.52;
-      ship.style.left = (cx + Math.cos(orbitAngle) * 22 - 200) + 'px';
-      ship.style.top = (cy + Math.sin(orbitAngle) * 22 - 100) + 'px';
+      ship.style.transform = `translate3d(${cx + Math.cos(orbitAngle) * 22 - 200}px, ${cy + Math.sin(orbitAngle) * 22 - 100}px, 0) rotate(-12deg) scale(1.1)`;
       requestAnimationFrame(miniOrbit);
     }
 
@@ -1774,10 +1769,8 @@
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
 
-        ship.style.transition = 'left 1.3s cubic-bezier(.25,.46,.45,.94), top 1.3s cubic-bezier(.25,.46,.45,.94), transform 1.3s, opacity 0.5s 1s';
-        ship.style.left = (centerX - 200) + 'px';
-        ship.style.top = (centerY - 100) + 'px';
-        ship.style.transform = 'rotate(0deg)';
+        ship.style.transition = 'transform 1.3s cubic-bezier(.25,.46,.45,.94), opacity 0.5s 1s';
+        ship.style.transform = `translate3d(${centerX - 200}px, ${centerY - 100}px, 0) rotate(0deg)`;
         ship.style.opacity = 0;
 
         setTimeout(() => {
