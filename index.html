@@ -36,8 +36,55 @@
       background-color: var(--bg);
       color: var(--white);
       font-family: var(--font-b);
-      overflow-x: hidden;
+      overflow: hidden; /* Prevent scroll during load */
       line-height: 1.6;
+    }
+
+    /* PRELOADER */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 10000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 1s ease, visibility 1s;
+    }
+
+    .load-box {
+      width: 300px;
+      height: 2px;
+      background: rgba(78, 205, 196, 0.1);
+      position: relative;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+
+    .load-bar {
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--cyan);
+      box-shadow: 0 0 15px var(--cyan);
+      animation: loading 2s infinite;
+    }
+
+    @keyframes loading {
+      0% { left: -100%; }
+      50% { left: 0%; }
+      100% { left: 100%; }
+    }
+
+    .load-text {
+      font-family: var(--font-m);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--cyan);
+      text-transform: uppercase;
     }
 
     /* CUSTOM CURSOR */
@@ -1078,6 +1125,24 @@
       color: var(--cyan);
     }
 
+    .stack-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .stack-col .sec-label {
+      margin-bottom: 15px;
+      opacity: 0.6;
+    }
+
+    @media (max-width: 900px) {
+      .stack-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 900px) {
 
       #s2,
@@ -1104,12 +1169,22 @@
 </head>
 
 <body>
+  <div id="preloader">
+    <div class="load-text">Initializing Defense Intelligence</div>
+    <div class="load-box">
+      <div class="load-bar"></div>
+    </div>
+  </div>
+
   <div id="cur"></div>
   <div id="curR"></div>
   <canvas id="stars"></canvas>
 
   <nav id="navbar">
-    <div class="logo">AKD</div>
+    <div class="logo" style="display: flex; align-items: center; gap: 10px;">
+      <img src="loading_reference.png" alt="AR" style="width: 30px; height: 30px; border-radius: 50%; filter: drop-shadow(0 0 5px var(--cyan));">
+      AKD
+    </div>
     <div class="nav-links">
       <a href="#s1">Home</a>
       <a href="#s2">About</a>
@@ -1158,43 +1233,50 @@
 
   <!-- SECTION 2: ABOUT -->
   <section id="s2">
-    <div class="stats">
-      <div class="stat-item reveal">
+    <div class="about-wrapper reveal" style="display: flex; gap: 50px; align-items: center;">
+      <div class="profile-container" style="position: relative; flex-shrink: 0;">
+        <div class="profile-frame" style="position: absolute; inset: -15px; border: 1px solid var(--cyan); opacity: 0.3; pointer-events: none;"></div>
+        <img src="profile_new.jpg" alt="Arnab Kumar Das" style="width: 320px; height: 320px; object-fit: cover; border: 1px solid var(--cyan); box-shadow: 0 0 30px rgba(78, 205, 196, 0.2);">
+        <div class="profile-tag" style="position: absolute; bottom: 15px; right: -10px; background: var(--cyan); color: var(--bg); padding: 5px 15px; font-family: var(--font-m); font-size: 0.6rem; letter-spacing: 0.1em; font-weight: 900;">ACTIVE_AGENT</div>
+      </div>
+      
+      <div class="about-text">
+        <div class="sec-label">Identity</div>
+        <h2 class="sec-title">DYNAMIC <span class="c">OPERATIONS</span></h2>
+        <p>MISSION_DATA: AI and cybersecurity-focused engineering student specializing in intelligent systems and secure architecture.</p>
+        <p>My work centers around machine learning, automation, and network security, with a strong emphasis on building scalable and resilient infrastructures.</p>
+        <p>I approach technology with analytical precision and a security-first mindset, continuously advancing my expertise in AI-driven defense systems and modern cybersecurity frameworks.</p>
+        
+        <div class="skill-tags" style="margin-top: 25px;">
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Python</span>
+          <span class="tag">AI/ML</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Penetration Testing</span>
+          <span class="tag">SOC</span>
+          <span class="tag">CTF</span>
+          <span class="tag">Linux</span>
+        </div>
+        <a href="#s4" class="btn btn-primary" style="margin-top: 30px;">Access Archives</a>
+      </div>
+    </div>
+    
+    <div class="stats reveal" style="margin-top: 80px;">
+      <div class="stat-item">
         <h3>5+</h3>
         <p>Years Experience</p>
         <div class="stat-bar"></div>
       </div>
-      <div class="stat-item reveal">
+      <div class="stat-item">
         <h3>300+</h3>
         <p>Projects Completed</p>
         <div class="stat-bar"></div>
       </div>
-      <div class="stat-item reveal">
+      <div class="stat-item">
         <h3>10+</h3>
         <p>Certifications</p>
         <div class="stat-bar"></div>
       </div>
-    </div>
-    <div class="about-text reveal">
-      <div class="sec-label">About</div>
-      <h2 class="sec-title">DYNAMIC <span class="c">OPERATIONS</span></h2>
-      <p>
-        I am an AI and cybersecurity-focused engineering student specializing in intelligent systems and secure architecture. My work centers around machine learning, automation, and network security, with a strong emphasis on building scalable and resilient infrastructures.
-      </p>
-      <p>
-        I approach technology with analytical precision and a security-first mindset, continuously advancing my expertise in AI-driven defense systems and modern cybersecurity frameworks. My goal is to engineer intelligent solutions that are both innovative and secure by design.
-      </p>
-      <div class="skill-tags">
-        <span class="tag">Cybersecurity</span>
-        <span class="tag">Python</span>
-        <span class="tag">AI/ML</span>
-        <span class="tag">Networking</span>
-        <span class="tag">Penetration Testing</span>
-        <span class="tag">SOC</span>
-        <span class="tag">CTF</span>
-        <span class="tag">Linux</span>
-      </div>
-      <a href="#s4" class="btn btn-primary">View My Work</a>
     </div>
   </section>
 
@@ -1205,46 +1287,41 @@
       <h2 class="sec-title">DEVELOPMENT <span class="c">STACK</span></h2>
 
       <div class="skill-bars">
+        <div class="sec-label">Technical Proficiency</div>
         <div class="sk-item">
-          <div class="sk-info"><span>Python</span><span>95%</span></div>
+          <div class="sk-info"><span>Cybersecurity & Pen Testing</span><span>92%</span></div>
           <div class="sk-track">
-            <div class="sk-fill" data-w="95"></div>
+            <div class="sk-fill" data-w="92"></div>
           </div>
         </div>
         <div class="sk-item">
-          <div class="sk-info"><span>Cybersecurity/Pen Testing</span><span>88%</span></div>
-          <div class="sk-track">
-            <div class="sk-fill" data-w="88"></div>
-          </div>
-        </div>
-        <div class="sk-item">
-          <div class="sk-info"><span>AI/Machine Learning</span><span>82%</span></div>
-          <div class="sk-track">
-            <div class="sk-fill" data-w="82"></div>
-          </div>
-        </div>
-        <div class="sk-item">
-          <div class="sk-info"><span>Linux/Bash</span><span>90%</span></div>
-          <div class="sk-track">
-            <div class="sk-fill" data-w="90"></div>
-          </div>
-        </div>
-        <div class="sk-item">
-          <div class="sk-info"><span>Networking/SOC</span><span>85%</span></div>
+          <div class="sk-info"><span>AI & Neural Networks</span><span>85%</span></div>
           <div class="sk-track">
             <div class="sk-fill" data-w="85"></div>
           </div>
         </div>
       </div>
 
-      <div class="sec-label">Development Stack</div>
-      <div class="dev-pills">
-        <div class="pill">Git</div>
-        <div class="pill">GitHub</div>
-        <div class="pill">Postman</div>
-        <div class="pill">VS Code</div>
-        <div class="pill">Kali Linux</div>
-        <div class="pill">Wireshark</div>
+      <div class="stack-grid">
+        <div class="stack-col">
+          <div class="sec-label">Core Languages</div>
+          <div class="dev-pills">
+            <div class="pill">Python</div>
+            <div class="pill">SQL</div>
+            <div class="pill">BASH (Shell Scripting)</div>
+            <div class="pill">JavaScript</div>
+          </div>
+        </div>
+        <div class="stack-col">
+          <div class="sec-label">Security Arsenal</div>
+          <div class="dev-pills">
+            <div class="pill">Nmap</div>
+            <div class="pill">Kali Linux</div>
+            <div class="pill">Metasploit</div>
+            <div class="pill">Burp Suite</div>
+            <div class="pill">Wireshark</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -1358,7 +1435,7 @@
     <div class="cert-grid">
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="/assets/certificates/python_coder.png" alt="Python Coder" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/python_coder_hires.png" alt="Python Coder" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>PYTHON CODER</h5>
@@ -1367,7 +1444,7 @@
       </div>
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="/assets/certificates/ai_agents.png" alt="AI Agents Intensive" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/ai_agents_hires.png" alt="AI Agents Intensive" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>5-DAY AI AGENTS INTENSIVE</h5>
@@ -1376,7 +1453,7 @@
       </div>
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="/assets/certificates/intro_ml.png" alt="Intro to ML" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/intro_ml_hires.png" alt="Intro to ML" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>INTRO TO MACHINE LEARNING</h5>
@@ -1385,11 +1462,20 @@
       </div>
       <div class="cert-card reveal highlight">
         <div class="cert-img">
-          <img src="/assets/certificates/offensive_sec.jpg" alt="Offensive Security" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/offensive_sec_hires.jpg" alt="Offensive Security" style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>OFFENSIVE SECURITY OPERATIONS</h5>
           <p>Cybrary | Jan 2026</p>
+        </div>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-img">
+          <img src="assets/certificates/chatgpt_ai.png" alt="ChatGPT AI" style="width:100%; height:100%; object-fit:cover;">
+        </div>
+        <div class="cert-info">
+          <h5>AI & CHATGPT OPTIMIZATION</h5>
+          <p>OpenAI Showcase | Feb 2026</p>
         </div>
       </div>
     </div>
@@ -1530,13 +1616,26 @@
       });
       requestAnimationFrame(drawStars);
     }
+    // drawStars(); // Called inside preloader trigger now if needed, or kept global
     drawStars();
+
+    // PRELOADER
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('preloader');
+      setTimeout(() => {
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        document.body.style.overflow = 'auto';
+        startTime = Date.now(); // Reset flight start
+        fly();
+      }, 1500);
+    });
 
     // SPACESHIP LOGIC
     let startTime = Date.now();
     const duration = 2800;
-    const startPos = { x: window.innerWidth + 400, y: -400 }; // NE Corner
-    const endPos = { x: window.innerWidth * 0.15 - 200, y: window.innerHeight * 0.52 - 100 }; // SW Area
+    const startPos = { x: -400, y: -400 }; // NW Corner
+    const endPos = { x: window.innerWidth * 0.75, y: window.innerHeight * 0.52 }; // SE Area
     let prevPos = { ...startPos };
 
     function fly() {
@@ -1561,8 +1660,8 @@
       let dy = curY - prevPos.y;
       let lookAngle = Math.atan2(dy, dx) * (180 / Math.PI);
       
-      // Face forward along trajectory
-      let finalAngle = lookAngle;
+      // Face forward: NW to SE is ~45deg, but ship orientation needs +180 adjustment
+      let finalAngle = lookAngle + 180;
 
       ship.style.left = curX + 'px';
       ship.style.top = curY + 'px';
@@ -1594,7 +1693,7 @@
     function miniOrbit() {
       if (sPhase !== 'arrived') return;
       orbitAngle += 0.015;
-      let cx = window.innerWidth * 0.15;
+      let cx = window.innerWidth * 0.75;
       let cy = window.innerHeight * 0.52;
       ship.style.left = (cx + Math.cos(orbitAngle) * 22 - 200) + 'px';
       ship.style.top = (cy + Math.sin(orbitAngle) * 22 - 100) + 'px';
