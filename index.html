@@ -1561,9 +1561,9 @@
       let dy = curY - prevPos.y;
       let lookAngle = Math.atan2(dy, dx) * (180 / Math.PI);
       
-      // Dynamic 360 spin during flight
-      let roll = t * 360;
-      let finalAngle = lookAngle + roll;
+      // Ensure front of ship (pointy bit) faces the destination
+      // Adding 180 offset because the source image nose points towards bottom-left
+      let finalAngle = lookAngle + 180;
 
       ship.style.left = curX + 'px';
       ship.style.top = curY + 'px';
