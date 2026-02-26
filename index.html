@@ -36,7 +36,8 @@
       background-color: var(--bg);
       color: var(--white);
       font-family: var(--font-b);
-      overflow: hidden; /* Prevent scroll during load */
+      overflow: hidden;
+      /* Prevent scroll during load */
       line-height: 1.6;
     }
 
@@ -74,9 +75,17 @@
     }
 
     @keyframes loading {
-      0% { left: -100%; }
-      50% { left: 0%; }
-      100% { left: 100%; }
+      0% {
+        left: -100%;
+      }
+
+      50% {
+        left: 0%;
+      }
+
+      100% {
+        left: 100%;
+      }
     }
 
     .load-text {
@@ -1182,7 +1191,8 @@
 
   <nav id="navbar">
     <div class="logo" style="display: flex; align-items: center; gap: 10px;">
-      <img src="loading_reference.png" alt="AR" style="width: 30px; height: 30px; border-radius: 50%; filter: drop-shadow(0 0 5px var(--cyan));">
+      <img src="loading_reference.png" alt="AR"
+        style="width: 30px; height: 30px; border-radius: 50%; filter: drop-shadow(0 0 5px var(--cyan));">
       AKD
     </div>
     <div class="nav-links">
@@ -1204,7 +1214,8 @@
     <div class="hud-bracket bl"></div>
     <div class="hud-bracket br"></div>
 
-    <img id="flyShip" src="spaceship.png" alt="Spaceship" onload="console.log('Fly ship loaded')" onerror="console.error('Fly ship load error')">
+    <img id="flyShip" src="spaceship_fly.png" alt="Spaceship" onload="console.log('Fly ship loaded')"
+      onerror="console.error('Fly ship load error')">
     <div id="aura" style="display: none;"></div>
 
     <div class="hero-content">
@@ -1235,18 +1246,26 @@
   <section id="s2">
     <div class="about-wrapper reveal" style="display: flex; gap: 50px; align-items: center;">
       <div class="profile-container" style="position: relative; flex-shrink: 0;">
-        <div class="profile-frame" style="position: absolute; inset: -15px; border: 1px solid var(--cyan); opacity: 0.3; pointer-events: none;"></div>
-        <img src="profile_new.jpg" alt="Arnab Kumar Das" style="width: 320px; height: 320px; object-fit: cover; border: 1px solid var(--cyan); box-shadow: 0 0 30px rgba(78, 205, 196, 0.2);">
-        <div class="profile-tag" style="position: absolute; bottom: 15px; right: -10px; background: var(--cyan); color: var(--bg); padding: 5px 15px; font-family: var(--font-m); font-size: 0.6rem; letter-spacing: 0.1em; font-weight: 900;">ACTIVE_AGENT</div>
+        <div class="profile-frame"
+          style="position: absolute; inset: -15px; border: 1px solid var(--cyan); opacity: 0.3; pointer-events: none;">
+        </div>
+        <img src="profile_new.jpg" alt="Arnab Kumar Das"
+          style="width: 320px; height: 320px; object-fit: cover; object-position: top; border: 1px solid var(--cyan); box-shadow: 0 0 30px rgba(78, 205, 196, 0.2);">
+        <div class="profile-tag"
+          style="position: absolute; bottom: 15px; right: -10px; background: var(--cyan); color: var(--bg); padding: 5px 15px; font-family: var(--font-m); font-size: 0.6rem; letter-spacing: 0.1em; font-weight: 900;">
+          ACTIVE_AGENT</div>
       </div>
-      
+
       <div class="about-text">
         <div class="sec-label">Identity</div>
         <h2 class="sec-title">DYNAMIC <span class="c">OPERATIONS</span></h2>
-        <p>MISSION_DATA: AI and cybersecurity-focused engineering student specializing in intelligent systems and secure architecture.</p>
-        <p>My work centers around machine learning, automation, and network security, with a strong emphasis on building scalable and resilient infrastructures.</p>
-        <p>I approach technology with analytical precision and a security-first mindset, continuously advancing my expertise in AI-driven defense systems and modern cybersecurity frameworks.</p>
-        
+        <p>MISSION_DATA: AI and cybersecurity-focused engineering student specializing in intelligent systems and secure
+          architecture.</p>
+        <p>My work centers around machine learning, automation, and network security, with a strong emphasis on building
+          scalable and resilient infrastructures.</p>
+        <p>I approach technology with analytical precision and a security-first mindset, continuously advancing my
+          expertise in AI-driven defense systems and modern cybersecurity frameworks.</p>
+
         <div class="skill-tags" style="margin-top: 25px;">
           <span class="tag">Cybersecurity</span>
           <span class="tag">Python</span>
@@ -1260,24 +1279,7 @@
         <a href="#s4" class="btn btn-primary" style="margin-top: 30px;">Access Archives</a>
       </div>
     </div>
-    
-    <div class="stats reveal" style="margin-top: 80px;">
-      <div class="stat-item">
-        <h3>5+</h3>
-        <p>Years Experience</p>
-        <div class="stat-bar"></div>
-      </div>
-      <div class="stat-item">
-        <h3>300+</h3>
-        <p>Projects Completed</p>
-        <div class="stat-bar"></div>
-      </div>
-      <div class="stat-item">
-        <h3>10+</h3>
-        <p>Certifications</p>
-        <div class="stat-bar"></div>
-      </div>
-    </div>
+
   </section>
 
   <!-- SECTION 3: SKILLS -->
@@ -1330,7 +1332,8 @@
       <div class="oring"></div>
       <div class="oring"></div>
       <div class="hud-cross"></div>
-      <img id="orbitShip" src="spaceship.png" alt="Ship" onload="console.log('Orbit ship loaded')" onerror="console.error('Orbit ship load error')">
+      <img id="orbitShip" src="spaceship.png" alt="Ship" onload="console.log('Orbit ship loaded')"
+        onerror="console.error('Orbit ship load error')">
     </div>
   </section>
 
@@ -1435,7 +1438,8 @@
     <div class="cert-grid">
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="assets/certificates/python_coder_hires.png" alt="Python Coder" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/python_coder_hires.png" alt="Python Coder"
+            style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>PYTHON CODER</h5>
@@ -1444,7 +1448,8 @@
       </div>
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="assets/certificates/ai_agents_hires.png" alt="AI Agents Intensive" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/ai_agents_hires.png" alt="AI Agents Intensive"
+            style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>5-DAY AI AGENTS INTENSIVE</h5>
@@ -1453,7 +1458,8 @@
       </div>
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="assets/certificates/intro_ml_hires.png" alt="Intro to ML" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/intro_ml_hires.png" alt="Intro to ML"
+            style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>INTRO TO MACHINE LEARNING</h5>
@@ -1462,7 +1468,8 @@
       </div>
       <div class="cert-card reveal highlight">
         <div class="cert-img">
-          <img src="assets/certificates/offensive_sec_hires.jpg" alt="Offensive Security" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/offensive_sec_hires.jpg" alt="Offensive Security"
+            style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>OFFENSIVE SECURITY OPERATIONS</h5>
@@ -1471,7 +1478,8 @@
       </div>
       <div class="cert-card reveal">
         <div class="cert-img">
-          <img src="assets/certificates/chatgpt_ai.png" alt="ChatGPT AI" style="width:100%; height:100%; object-fit:cover;">
+          <img src="assets/certificates/chatgpt_ai.png" alt="ChatGPT AI"
+            style="width:100%; height:100%; object-fit:cover;">
         </div>
         <div class="cert-info">
           <h5>AI & CHATGPT OPTIMIZATION</h5>
@@ -1485,7 +1493,7 @@
   <section id="s7">
     <div class="transmit-title reveal">TRANSMIT</div>
     <div class="transmit-title c reveal">SIGNALS</div>
-    <p class="reveal" style="margin: 20px 0;">Let's build defence intelligence together</p>
+    <p class="reveal" style="margin: 20px 0;">Let's build next defence intelligence together</p>
 
     <div class="soc-row reveal">
       <a href="https://github.com/arnabdevs?tab=followers" target="_blank" class="soc-item">
@@ -1644,22 +1652,23 @@
       if (t >= 1) {
         t = 1;
         sPhase = 'arrived';
-        ship.style.transition = 'transform 1s ease';
-        ship.style.transform = 'rotate(-12deg)';
+        ship.src = 'spaceship_dive.png';
+        ship.style.transition = 'transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275), left 1s ease, top 1s ease';
+        ship.style.transform = 'rotate(-12deg) scale(1.1)';
         aura.style.display = 'none';
         navbar.style.opacity = 1;
         showHero();
         requestAnimationFrame(miniOrbit);
       }
 
-      let e = 1 - Math.pow(1 - t, 4); 
+      let e = 1 - Math.pow(1 - t, 4);
       let curX = startPos.x + (endPos.x - startPos.x) * e;
       let curY = startPos.y + (endPos.y - startPos.y) * e;
 
       let dx = curX - prevPos.x;
       let dy = curY - prevPos.y;
       let lookAngle = Math.atan2(dy, dx) * (180 / Math.PI);
-      
+
       // Face forward: NW to SE is ~45deg, but ship orientation needs +180 adjustment
       let finalAngle = lookAngle + 180;
 
