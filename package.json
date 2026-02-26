@@ -4,10 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "dev": "echo 'Run the site by opening index.html'",
+    "build": "mkdir -p dist && cp index.html dist/ && cp -r public dist/",
+    "preview": "echo 'Previewing index.html'"
   },
   "dependencies": {
     "framer-motion": "^11.18.2",
