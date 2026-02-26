@@ -1534,9 +1534,9 @@
 
     // SPACESHIP LOGIC
     let startTime = Date.now();
-    const duration = 2600;
-    const startPos = { x: window.innerWidth + 240, y: -240 };
-    const endPos = { x: window.innerWidth * 0.15 - 200, y: window.innerHeight * 0.52 - 100 };
+    const duration = 2800;
+    const startPos = { x: -400, y: -400 }; // NW Corner
+    const endPos = { x: window.innerWidth * 0.72, y: window.innerHeight * 0.58 }; // SE Area
     let prevPos = { ...startPos };
 
     function fly() {
@@ -1546,33 +1546,37 @@
         t = 1;
         sPhase = 'arrived';
         ship.style.transition = 'transform 1s ease';
-        ship.style.transform = 'rotate(-12deg)';
+        ship.style.transform = 'rotate(-8deg)';
         aura.style.display = 'none';
         navbar.style.opacity = 1;
         showHero();
         requestAnimationFrame(miniOrbit);
       }
 
-      let e = 1 - Math.pow(1 - t, 4);
+      let e = 1 - Math.pow(1 - t, 4); 
       let curX = startPos.x + (endPos.x - startPos.x) * e;
       let curY = startPos.y + (endPos.y - startPos.y) * e;
 
       let dx = curX - prevPos.x;
       let dy = curY - prevPos.y;
-      let angle = Math.atan2(dy, dx) * (180 / Math.PI);
+      let lookAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+      
+      // Dynamic 360 spin during flight
+      let roll = t * 360;
+      let finalAngle = lookAngle + roll;
 
       ship.style.left = curX + 'px';
       ship.style.top = curY + 'px';
-      if (t < 1) ship.style.transform = `rotate(${angle}deg)`;
+      if (t < 1) ship.style.transform = `rotate(${finalAngle}deg)`;
 
       // SPEED LINES
-      if (Math.random() < 0.3) {
+      if (Math.random() < 0.35) {
         const spd = document.createElement('div');
         spd.className = 'spd';
-        spd.style.width = (50 + Math.random() * 90) + 'px';
+        spd.style.width = (60 + Math.random() * 100) + 'px';
         spd.style.left = (curX + 200) + 'px';
-        spd.style.top = (curY + 100 + (Math.random() * 90 - 45)) + 'px';
-        spd.style.transform = `rotate(${angle}deg)`;
+        spd.style.top = (curY + 100 + (Math.random() * 100 - 50)) + 'px';
+        spd.style.transform = `rotate(${lookAngle}deg)`;
         document.body.appendChild(spd);
         setTimeout(() => spd.remove(), 460);
       }
@@ -1590,11 +1594,11 @@
     let orbitAngle = 0;
     function miniOrbit() {
       if (sPhase !== 'arrived') return;
-      orbitAngle += 0.014;
-      let cx = window.innerWidth * 0.15;
-      let cy = window.innerHeight * 0.52;
-      ship.style.left = (cx + Math.cos(orbitAngle) * 26 - 200) + 'px';
-      ship.style.top = (cy + Math.sin(orbitAngle) * 26 - 100) + 'px';
+      orbitAngle += 0.015;
+      let cx = window.innerWidth * 0.72;
+      let cy = window.innerHeight * 0.58;
+      ship.style.left = (cx + Math.cos(orbitAngle) * 22 - 200) + 'px';
+      ship.style.top = (cy + Math.sin(orbitAngle) * 22 - 100) + 'px';
       requestAnimationFrame(miniOrbit);
     }
 
