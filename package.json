@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "echo 'Run the site by opening index.html'",
-    "build": "mkdir -p dist && cp index.html dist/ && cp -r public dist/",
+    "build": "mkdir -p dist && cp index.html dist/ && cp -r public/. dist/",
     "preview": "echo 'Previewing index.html'"
   },
   "dependencies": {
