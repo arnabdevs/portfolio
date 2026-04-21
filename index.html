@@ -1434,63 +1434,753 @@
   </section>
 
   <!-- SECTION 6: CERTS -->
-  <section id="s6">
-    <h2 class="sec-title reveal" style="text-align: center;">CERTIFICATIONS</h2>
-    <div class="cert-grid">
-      <div class="cert-card reveal">
-        <div class="cert-img">
-          <img src="assets/certificates/python_coder_hires.png" alt="Python Coder"
-            style="width:100%; height:100%; object-fit:cover;">
+  <section id="s6" class="certificates-section">
+    <div class="section-container">
+        <h2 class="sec-title reveal" style="text-align: center;">
+            <span class="neon-text">CERTIFICATIONS</span>
+        </h2>
+ 
+        <p class="section-subtitle">Scroll, swipe, or use arrow keys to navigate through my professional certifications</p>
+ 
+        <!-- 3D Carousel Container -->
+        <div class="carousel-container" id="carouselContainer">
+            <div class="carousel-wrapper">
+                <div class="carousel" id="carousel" style="perspective: 1200px;">
+                    <!-- Certificates will be generated here by JavaScript -->
+                </div>
+            </div>
+            <!-- Indicator Dots -->
+            <div class="carousel-indicators" id="indicators"></div>
         </div>
-        <div class="cert-info">
-          <h5>PYTHON CODER</h5>
-          <p>Kaggle | Nov 2025</p>
+ 
+        <!-- Current Certificate Info -->
+        <div class="carousel-info">
+            <h3 class="active-cert-title" id="activeTitle">Python Coder</h3>
+            <p class="active-cert-issuer" id="activeIssuer">Kaggle | Nov 2025</p>
         </div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-img">
-          <img src="assets/certificates/ai_agents_hires.png" alt="AI Agents Intensive"
-            style="width:100%; height:100%; object-fit:cover;">
+ 
+        <!-- Navigation Hint -->
+        <div class="navigation-hint">
+            <span class="hint-arrow">←</span>
+            <span class="hint-text">Swipe • Scroll • Arrow Keys</span>
+            <span class="hint-arrow">→</span>
         </div>
-        <div class="cert-info">
-          <h5>5-DAY AI AGENTS INTENSIVE</h5>
-          <p>Google & Kaggle | Oct 2025</p>
-        </div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-img">
-          <img src="assets/certificates/intro_ml_hires.png" alt="Intro to ML"
-            style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div class="cert-info">
-          <h5>INTRO TO MACHINE LEARNING</h5>
-          <p>Kaggle | Jan 2026</p>
-        </div>
-      </div>
-      <div class="cert-card reveal highlight">
-        <div class="cert-img">
-          <img src="assets/certificates/offensive_sec_hires.jpg" alt="Offensive Security"
-            style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div class="cert-info">
-          <h5>OFFENSIVE SECURITY OPERATIONS</h5>
-          <p>Cybrary | Jan 2026</p>
-        </div>
-      </div>
-      <div class="cert-card reveal">
-        <div class="cert-img">
-          <img src="assets/certificates/chatgpt_ai.png" alt="ChatGPT AI"
-            style="width:100%; height:100%; object-fit:cover;">
-        </div>
-        <div class="cert-info">
-          <h5>AI & CHATGPT OPTIMIZATION</h5>
-          <p>OpenAI Showcase | Feb 2026</p>
-        </div>
-      </div>
     </div>
-  </section>
-
-  <!-- SECTION 7: CONTACT -->
+</section>
+ 
+<style>
+/* ==================== CERTIFICATES SECTION ==================== */
+.certificates-section {
+    padding: 100px 0;
+    position: relative;
+    background: transparent;
+}
+ 
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+ 
+.section-subtitle {
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 1rem;
+    margin-bottom: 60px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+ 
+/* ==================== 3D CAROUSEL ==================== */
+.carousel-container {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 80px 0;
+    padding: 40px 20px;
+    background: rgba(100, 255, 218, 0.03);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: grab;
+    transition: all 0.3s ease;
+}
+ 
+.carousel-container.dragging {
+    cursor: grabbing;
+    background: rgba(100, 255, 218, 0.08);
+    border-color: rgba(100, 255, 218, 0.2);
+}
+ 
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ 
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+ 
+/* ==================== CAROUSEL ITEMS ==================== */
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+ 
+.carousel-item.active {
+    opacity: 1;
+    z-index: 10;
+}
+ 
+/* ==================== CERTIFICATE CARD ==================== */
+.cert-card {
+    background: rgba(10, 25, 47, 0.4);
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    user-select: none;
+}
+ 
+.carousel-item.active .cert-card {
+    border-color: #64ffda;
+    border-width: 2px;
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.4), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+ 
+.cert-card:hover {
+    border-color: #64ffda;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(100, 255, 218, 0.3);
+}
+ 
+/* ==================== CERTIFICATE IMAGE ==================== */
+.cert-img {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: #000;
+}
+ 
+.cert-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform 0.5s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+ 
+.carousel-item.active .cert-img img {
+    transform: scale(1.05);
+}
+ 
+.cert-card:hover .cert-img img {
+    transform: scale(1.05);
+}
+ 
+.cert-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    backdrop-filter: blur(4px);
+}
+ 
+.carousel-item.active .cert-overlay {
+    opacity: 1;
+}
+ 
+.cert-card:hover .cert-overlay {
+    opacity: 1;
+}
+ 
+.cert-date {
+    color: #64ffda;
+    font-family: 'Space Mono', monospace;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+ 
+/* ==================== CERTIFICATE BADGE ==================== */
+.cert-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #64ffda 0%, #3b82f6 100%);
+    color: #0f172a;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(100, 255, 218, 0.3);
+    user-select: none;
+}
+ 
+/* ==================== CERTIFICATE INFO ==================== */
+.cert-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.5);
+}
+ 
+.cert-info h5 {
+    font-size: 1.1rem;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 600;
+    line-height: 1.4;
+}
+ 
+.cert-info p {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    font-weight: 400;
+}
+ 
+/* ==================== CAROUSEL INDICATORS ==================== */
+.carousel-indicators {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 20;
+}
+ 
+.indicator-dot {
+    height: 8px;
+    width: 8px;
+    background: rgba(100, 255, 218, 0.3);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid rgba(100, 255, 218, 0.2);
+    user-select: none;
+}
+ 
+.indicator-dot.active {
+    width: 32px;
+    background: #64ffda;
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.6);
+    border-color: #64ffda;
+}
+ 
+/* ==================== CAROUSEL INFO ==================== */
+.carousel-info {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 120px auto 0;
+}
+ 
+.active-cert-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    margin-bottom: 8px;
+    font-family: 'Space Mono', monospace;
+}
+ 
+.active-cert-issuer {
+    color: #64ffda;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+ 
+/* ==================== NAVIGATION HINT ==================== */
+.navigation-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(100, 255, 218, 0.1);
+    text-align: center;
+    color: #cbd5e1;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+ 
+.hint-arrow {
+    color: #64ffda;
+    font-weight: 700;
+    font-size: 14px;
+}
+ 
+.hint-text {
+    color: #cbd5e1;
+}
+ 
+/* ==================== NEON TEXT ==================== */
+.neon-text {
+    background: linear-gradient(135deg, #64ffda 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+ 
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 1024px) {
+    .carousel-container {
+        height: 450px;
+    }
+ 
+    .carousel {
+        max-width: 500px;
+    }
+ 
+    .carousel-info {
+        max-width: 500px;
+    }
+}
+ 
+@media (max-width: 768px) {
+    .certificates-section {
+        padding: 80px 0;
+    }
+ 
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 40px;
+    }
+ 
+    .carousel-container {
+        height: 400px;
+        margin: 60px 0;
+        padding: 30px 15px;
+    }
+ 
+    .carousel {
+        max-width: 100%;
+    }
+ 
+    .carousel-item {
+        width: 90vw;
+        height: 400px;
+    }
+ 
+    .cert-badge {
+        top: 12px;
+        right: 12px;
+        font-size: 11px;
+        padding: 6px 12px;
+    }
+ 
+    .cert-info {
+        padding: 15px;
+    }
+ 
+    .cert-info h5 {
+        font-size: 0.95rem;
+    }
+ 
+    .cert-info p {
+        font-size: 0.85rem;
+    }
+ 
+    .cert-date {
+        font-size: 11px;
+    }
+ 
+    .carousel-indicators {
+        bottom: -50px;
+        gap: 10px;
+    }
+ 
+    .carousel-info {
+        max-width: 90vw;
+        margin-top: 90px;
+    }
+ 
+    .active-cert-title {
+        font-size: 1.3rem;
+    }
+ 
+    .active-cert-issuer {
+        font-size: 0.9rem;
+    }
+ 
+    .navigation-hint {
+        font-size: 11px;
+        gap: 10px;
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+ 
+    .hint-arrow {
+        font-size: 13px;
+    }
+}
+ 
+@media (max-width: 480px) {
+    .certificates-section {
+        padding: 60px 0;
+    }
+ 
+    .section-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 30px;
+    }
+ 
+    .carousel-container {
+        height: 350px;
+        margin: 40px 0;
+        padding: 20px 10px;
+    }
+ 
+    .carousel-item {
+        width: 95vw;
+        height: 350px;
+    }
+ 
+    .cert-img {
+        aspect-ratio: 4 / 3;
+    }
+ 
+    .cert-card {
+        border-radius: 10px;
+    }
+ 
+    .cert-badge {
+        top: 10px;
+        right: 10px;
+        font-size: 10px;
+        padding: 5px 10px;
+    }
+ 
+    .cert-info {
+        padding: 12px;
+    }
+ 
+    .cert-info h5 {
+        font-size: 0.85rem;
+        margin-bottom: 4px;
+    }
+ 
+    .cert-info p {
+        font-size: 0.75rem;
+    }
+ 
+    .cert-date {
+        font-size: 10px;
+    }
+ 
+    .carousel-indicators {
+        bottom: -45px;
+        gap: 8px;
+    }
+ 
+    .indicator-dot {
+        width: 6px;
+        height: 6px;
+    }
+ 
+    .indicator-dot.active {
+        width: 24px;
+    }
+ 
+    .carousel-info {
+        margin-top: 80px;
+    }
+ 
+    .active-cert-title {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+    }
+ 
+    .active-cert-issuer {
+        font-size: 0.8rem;
+    }
+ 
+    .navigation-hint {
+        font-size: 10px;
+        gap: 8px;
+        margin-top: 20px;
+    }
+ 
+    .hint-arrow {
+        font-size: 12px;
+    }
+}
+ 
+/* ==================== PERFORMANCE OPTIMIZATIONS ==================== */
+.carousel,
+.carousel-item,
+.cert-card {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+ 
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+    .carousel,
+    .carousel-item,
+    .cert-card,
+    .indicator-dot,
+    .cert-img img,
+    .cert-overlay {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+</style>
+ 
+<script>
+// Certificate data with your exact paths
+const certificates = [
+    {
+        title: 'PYTHON CODER',
+        issuer: 'Kaggle',
+        date: 'November 2025',
+        image: 'assets/certificates/python_coder_hires.png',
+        id: 1
+    },
+    {
+        title: '5-DAY AI AGENTS INTENSIVE',
+        issuer: 'Google & Kaggle',
+        date: 'October 2025',
+        image: 'assets/certificates/ai_agents_hires.png',
+        id: 2
+    },
+    {
+        title: 'INTRO TO MACHINE LEARNING',
+        issuer: 'Kaggle',
+        date: 'January 2026',
+        image: 'assets/certificates/intro_ml_hires.png',
+        id: 3
+    },
+    {
+        title: 'OFFENSIVE SECURITY OPERATIONS',
+        issuer: 'Cybrary',
+        date: 'January 2026',
+        image: 'assets/certificates/offensive_sec_hires.jpg',
+        id: 4
+    }
+];
+ 
+let currentIndex = 0;
+const anglePerCert = 360 / certificates.length;
+let isDragging = false;
+let startX = 0;
+let currentX = 0;
+const dragThreshold = 50;
+ 
+// Initialize carousel
+function initCarousel() {
+    const carousel = document.getElementById('carousel');
+    const indicators = document.getElementById('indicators');
+ 
+    certificates.forEach((cert, index) => {
+        // Create carousel item
+        const item = document.createElement('div');
+        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+        item.style.transform = `rotateY(${index * anglePerCert}deg) translateZ(350px)`;
+        item.style.transformStyle = 'preserve-3d';
+        item.innerHTML = `
+            <div class="cert-card">
+                <div class="cert-img">
+                    <img src="${cert.image}" alt="${cert.title}" draggable="false">
+                    <div class="cert-overlay">
+                        <span class="cert-date">${cert.date}</span>
+                    </div>
+                    <div class="cert-badge">${index + 1} / ${certificates.length}</div>
+                </div>
+                <div class="cert-info">
+                    <h5>${cert.title}</h5>
+                    <p>${cert.issuer} | ${cert.date.split(' ')[0]} ${cert.date.split(' ')[1]}</p>
+                </div>
+            </div>
+        `;
+        carousel.appendChild(item);
+ 
+        // Create indicator
+        const indicator = document.createElement('div');
+        indicator.className = `indicator-dot ${index === 0 ? 'active' : ''}`;
+        indicators.appendChild(indicator);
+    });
+}
+ 
+// Update carousel display
+function updateCarousel() {
+    const carousel = document.getElementById('carousel');
+    const items = carousel.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator-dot');
+ 
+    carousel.style.transform = `rotateY(${currentIndex * anglePerCert}deg)`;
+    carousel.style.transition = isDragging ? 'none' : 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+ 
+    items.forEach((item, index) => {
+        item.classList.toggle('active', index === currentIndex);
+    });
+ 
+    indicators.forEach((ind, index) => {
+        ind.classList.toggle('active', index === currentIndex);
+    });
+ 
+    document.getElementById('activeTitle').textContent = certificates[currentIndex].title;
+    document.getElementById('activeIssuer').textContent = `${certificates[currentIndex].issuer} | ${certificates[currentIndex].date}`;
+}
+ 
+// Navigate functions
+function nextCert() {
+    currentIndex = (currentIndex + 1) % certificates.length;
+    updateCarousel();
+}
+ 
+function prevCert() {
+    currentIndex = (currentIndex - 1 + certificates.length) % certificates.length;
+    updateCarousel();
+}
+ 
+// Drag/Swipe handlers
+function handleDragStart(e) {
+    isDragging = true;
+    startX = e.type.includes('mouse') ? e.clientX : e.touches?.[0]?.clientX || 0;
+    currentX = startX;
+    document.getElementById('carouselContainer').classList.add('dragging');
+}
+ 
+function handleDragMove(e) {
+    if (!isDragging) return;
+ 
+    currentX = e.type.includes('mouse') ? e.clientX : e.touches?.[0]?.clientX || 0;
+    const diff = currentX - startX;
+    const dragRotation = (diff / 100) * 15;
+ 
+    const carousel = document.getElementById('carousel');
+    carousel.style.transform = `rotateY(${currentIndex * anglePerCert + dragRotation}deg)`;
+}
+ 
+function handleDragEnd(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    document.getElementById('carouselContainer').classList.remove('dragging');
+ 
+    const diff = currentX - startX;
+ 
+    if (Math.abs(diff) > dragThreshold) {
+        if (diff > 0) {
+            prevCert();
+        } else {
+            nextCert();
+        }
+    } else {
+        updateCarousel();
+    }
+}
+ 
+// Scroll-triggered rotation
+let lastScrollY = 0;
+function handleScroll() {
+    const container = document.getElementById('s6');
+    if (!container) return;
+ 
+    const rect = container.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const elementCenter = rect.top + rect.height / 2;
+    const windowCenter = windowHeight / 2;
+ 
+    const distance = Math.abs(elementCenter - windowCenter);
+    const maxDistance = windowHeight / 2 + rect.height / 2;
+    let progress = 1 - (distance / maxDistance);
+    progress = Math.max(0, Math.min(1, progress));
+ 
+    const currentRotation = progress * 360;
+    const index = Math.floor((currentRotation / anglePerCert) % certificates.length);
+ 
+    if (index !== currentIndex) {
+        currentIndex = index;
+        updateCarousel();
+    }
+}
+ 
+// Keyboard navigation
+function handleKeyDown(e) {
+    if (e.key === 'ArrowRight') prevCert();
+    if (e.key === 'ArrowLeft') nextCert();
+}
+ 
+// Event listeners
+const carouselContainer = document.getElementById('carouselContainer');
+carouselContainer.addEventListener('mousedown', handleDragStart);
+carouselContainer.addEventListener('touchstart', handleDragStart, { passive: true });
+ 
+document.addEventListener('mousemove', handleDragMove, { passive: true });
+document.addEventListener('touchmove', handleDragMove, { passive: true });
+ 
+document.addEventListener('mouseup', handleDragEnd);
+document.addEventListener('touchend', handleDragEnd);
+document.addEventListener('mouseleave', handleDragEnd);
+ 
+window.addEventListener('scroll', handleScroll, { passive: true });
+window.addEventListener('keydown', handleKeyDown);
+ 
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    initCarousel();
+    updateCarousel();
+});
+ 
+// Fallback if DOM is already loaded
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCarousel);
+} else {
+    initCarousel();
+    updateCarousel();
+}
+</script>
+ <!-- SECTION 7: CONTACT -->
   <section id="s7">
     <div class="transmit-title reveal">TRANSMIT</div>
     <div class="transmit-title c reveal">SIGNALS</div>
