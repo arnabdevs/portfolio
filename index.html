@@ -906,73 +906,319 @@
     }
 
     /* SECTION 6 - CERTS */
-    #s6 {
-      background: var(--bg2);
-    }
+   /* ========================= */
+/* CERTIFICATION SECTION */
+/* ========================= */
 
-    .cert-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+#s6 {
+  background: var(--bg2);
+  overflow: hidden;
+  position: relative;
+}
 
-    .cert-card {
-      background: var(--bg);
-      border: 1px solid rgba(78, 205, 196, 0.1);
-      overflow: hidden;
-      transition: 0.3s;
-    }
+/* ========================= */
+/* GRID / CAROUSEL */
+/* ========================= */
 
-    .cert-card:hover {
-      border-color: rgba(78, 205, 196, 0.35);
-      box-shadow: 0 0 20px rgba(78, 205, 196, 0.1);
-    }
+.cert-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 
-    .cert-img {
-      aspect-ratio: 16/9;
-      background: linear-gradient(45deg, #1a2a3a, #0a1118);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
+  height: 650px;
 
-    .cert-mock {
-      width: 80%;
-      height: 60%;
-      background: white;
-      color: #050a12;
-      padding: 10px;
-      font-size: 0.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      font-family: serif;
-    }
+  perspective: 1800px;
+}
 
-    .cert-info {
-      padding: 20px;
-    }
+/* ========================= */
+/* CARD */
+/* ========================= */
 
-    .cert-info h5 {
-      font-family: var(--font-h);
-      font-size: 0.8rem;
-      margin-bottom: 5px;
-    }
+.cert-card {
 
-    .cert-info p {
-      font-family: var(--font-m);
-      font-size: 0.7rem;
-      color: var(--dim);
-    }
+  position: absolute;
 
-    .highlight {
-      border-color: var(--cyan) !important;
-      box-shadow: 0 0 15px rgba(78, 205, 196, 0.2);
-    }
+  width: 420px;
+  height: 520px;
 
+  background: rgba(10, 18, 30, 0.82);
+
+  border: 1px solid rgba(78, 205, 196, 0.12);
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  backdrop-filter: blur(12px);
+
+  transition:
+    transform .8s cubic-bezier(.22,.61,.36,1),
+    opacity .8s ease,
+    filter .8s ease;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45);
+
+  transform-style: preserve-3d;
+}
+
+/* ========================= */
+/* ACTIVE CENTER CARD */
+/* ========================= */
+
+.cert-card.active {
+
+  opacity: 1;
+
+  filter: blur(0);
+
+  z-index: 10;
+
+  transform:
+    translateX(0)
+    scale(1);
+
+  border-color: rgba(78,205,196,.9);
+
+  box-shadow:
+    0 0 25px rgba(78,205,196,.35),
+    0 0 100px rgba(78,205,196,.12);
+}
+
+/* ========================= */
+/* LEFT CARD */
+/* ========================= */
+
+.cert-card.left {
+
+  transform:
+    translateX(-260px)
+    scale(.82)
+    rotateY(15deg);
+
+  opacity: .28;
+
+  filter: blur(1.5px);
+
+  z-index: 6;
+}
+
+/* ========================= */
+/* RIGHT CARD */
+/* ========================= */
+
+.cert-card.right {
+
+  transform:
+    translateX(260px)
+    scale(.82)
+    rotateY(-15deg);
+
+  opacity: .28;
+
+  filter: blur(1.5px);
+
+  z-index: 6;
+}
+
+/* ========================= */
+/* BACK CARDS */
+/* ========================= */
+
+.cert-card.back-left {
+
+  transform:
+    translateX(-480px)
+    scale(.65)
+    rotateY(20deg);
+
+  opacity: .08;
+
+  filter: blur(4px);
+
+  z-index: 2;
+}
+
+.cert-card.back-right {
+
+  transform:
+    translateX(480px)
+    scale(.65)
+    rotateY(-20deg);
+
+  opacity: .08;
+
+  filter: blur(4px);
+
+  z-index: 2;
+}
+
+/* ========================= */
+/* HOVER */
+/* ========================= */
+
+.cert-card:hover {
+
+  border-color: rgba(78,205,196,.35);
+
+  box-shadow:
+    0 0 20px rgba(78,205,196,.1);
+}
+
+/* ========================= */
+/* IMAGE AREA */
+/* ========================= */
+
+.cert-img {
+
+  aspect-ratio: 16/9;
+
+  background:
+    linear-gradient(45deg,#1a2a3a,#0a1118);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  padding: 20px;
+}
+
+/* ========================= */
+/* CERTIFICATE IMAGE */
+/* ========================= */
+
+.cert-img img {
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  border-radius: 14px;
+
+  opacity: 1;
+
+  transition: .5s ease;
+}
+
+/* ACTIVE CERTIFICATE CLARITY */
+
+.cert-card.active .cert-img img {
+
+  filter:
+    brightness(1.05)
+    contrast(1.08)
+    saturate(1.05);
+}
+
+/* ========================= */
+/* REMOVE MOCK DESIGN */
+/* ========================= */
+
+.cert-mock {
+
+  width: 80%;
+  height: 60%;
+
+  background: white;
+
+  color: #050a12;
+
+  padding: 10px;
+
+  font-size: .5rem;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,.5);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  font-family: serif;
+}
+
+/* ========================= */
+/* CONTENT */
+/* ========================= */
+
+.cert-info {
+
+  padding: 24px;
+}
+
+.cert-info h5 {
+
+  font-family: var(--font-h);
+
+  font-size: 1rem;
+
+  margin-bottom: 8px;
+
+  color: white;
+}
+
+.cert-info p {
+
+  font-family: var(--font-m);
+
+  font-size: .78rem;
+
+  color: var(--dim);
+
+  line-height: 1.6;
+}
+
+/* ========================= */
+/* HIGHLIGHT */
+/* ========================= */
+
+.highlight {
+
+  border-color: var(--cyan) !important;
+
+  box-shadow:
+    0 0 25px rgba(78,205,196,.35),
+    0 0 100px rgba(78,205,196,.12);
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+
+@media(max-width:768px){
+
+  .cert-grid{
+    height:500px;
+  }
+
+  .cert-card{
+    width:280px;
+    height:380px;
+  }
+
+  .cert-card.left{
+    transform:
+      translateX(-150px)
+      scale(.72);
+  }
+
+  .cert-card.right{
+    transform:
+      translateX(150px)
+      scale(.72);
+  }
+
+  .cert-card.back-left,
+  .cert-card.back-right{
+    opacity:0;
+  }
+}
     /* SECTION 7 - CONTACT */
     #s7 {
       min-height: 100vh;
